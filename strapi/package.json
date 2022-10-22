@@ -1,0 +1,45 @@
+{
+  "name": "strapi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Strapi back end for the Tasty website",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "lint": "eslint --ext \".js,.jsx,.ts,.tsx\" --ignore-path .gitignore .",
+    "lint:fix": "eslint --fix --ext \".js,.jsx,.ts,.tsx\" --ignore-path .gitignore ."
+  },
+  "dependencies": {
+    "@strapi/plugin-graphql": "^4.4.5",
+    "@strapi/plugin-i18n": "4.4.5",
+    "@strapi/plugin-users-permissions": "4.4.5",
+    "@strapi/strapi": "4.4.5",
+    "better-sqlite3": "7.4.6"
+  },
+  "author": {
+    "name": "Lucas Silbernagel"
+  },
+  "strapi": {
+    "uuid": "bca3be9b-1673-4f80-ab19-9d10952d20d2"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.26.0",
+    "eslint-config-lucas-silbernagel": "^1.1.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1"
+  }
+}
