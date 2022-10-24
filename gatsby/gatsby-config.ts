@@ -1,4 +1,8 @@
 import type { GatsbyConfig } from 'gatsby'
+import * as dotenv from 'dotenv'
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -28,6 +32,15 @@ const config: GatsbyConfig = {
         path: './src/images/',
       },
       __key: 'images',
+    },
+    {
+      resolve: 'gatsby-source-strapi',
+      options: {
+        apiURL: process.env.STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: [],
+        singleTypes: ['home-page'],
+      },
     },
   ],
 }
