@@ -7,6 +7,8 @@ export const Head: HeadFC = () => <title>Tasty Recipes</title>
 const Home = () => {
   const data = useStaticQuery(query)
   const homePageData = data.strapiHomePage
+  const recipes = data.allStrapiRecipe.nodes
+  console.log(recipes)
 
   const [screenWidth, setScreenWidth] = useState<number>(0)
 
@@ -56,6 +58,50 @@ const query = graphql`
       }
       heroLogo {
         url
+      }
+    }
+    allStrapiRecipe {
+      nodes {
+        author {
+          bio
+          jobTitle
+          name
+          photo {
+            alternativeText
+            url
+          }
+        }
+        id
+        directions {
+          data {
+            directions
+          }
+        }
+        ingredients {
+          data {
+            ingredients
+          }
+        }
+        introText {
+          data {
+            introText
+          }
+        }
+        largePhoto {
+          alternativeText
+          url
+        }
+        name
+        prepTime
+        publishedAt
+        recipeSlug
+        smallPhoto {
+          alternativeText
+          url
+        }
+        tagline
+        totalTime
+        yields
       }
     }
   }
