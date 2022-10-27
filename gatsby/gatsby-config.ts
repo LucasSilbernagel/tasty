@@ -20,7 +20,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/icon.png',
+        icon: 'src/images/tasty-logo.png',
       },
     },
     'gatsby-plugin-sharp',
@@ -39,7 +39,7 @@ const config: GatsbyConfig = {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: ['recipe', 'author'],
-        singleTypes: ['home-page'],
+        singleTypes: ['tasty-logo'],
       },
     },
   ],

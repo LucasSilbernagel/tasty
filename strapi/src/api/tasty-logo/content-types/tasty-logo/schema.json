@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "tasty_logos",
+  "info": {
+    "singularName": "tasty-logo",
+    "pluralName": "tasty-logos",
+    "displayName": "tastyLogo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tastyLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

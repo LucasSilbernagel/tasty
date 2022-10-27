@@ -1,4 +1,5 @@
 import { HeadFC, useStaticQuery, graphql } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { useEffect, useState } from 'react'
 import '../styles/Home.css'
 
@@ -6,8 +7,9 @@ export const Head: HeadFC = () => <title>Tasty Recipes</title>
 
 const Home = () => {
   const data = useStaticQuery(query)
-  const homePageData = data.strapiHomePage
+  const tastyLogo = data.strapiTastyLogo.tastyLogo
   const recipes = data.allStrapiRecipe.nodes
+  const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)]
   console.log(recipes)
 
   const [screenWidth, setScreenWidth] = useState<number>(0)
@@ -29,15 +31,15 @@ const Home = () => {
         style={{
           backgroundImage: `url(${process.env.STRAPI_API_URL}${
             screenWidth > 600
-              ? homePageData.heroBackgroundLarge.url
-              : homePageData.heroBackgroundSmall.url
+              ? randomRecipe.largePhoto.url
+              : randomRecipe.smallPhoto.url
           })`,
         }}
       >
         <div className="pt-4 pl-4">
-          <img
-            src={`${process.env.STRAPI_API_URL}${homePageData.heroLogo.url}`}
-            alt="Tasty logo"
+          <GatsbyImage
+            image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
+            alt={tastyLogo.alternativeText}
           />
         </div>
       </div>
@@ -49,15 +51,14 @@ export default Home
 
 const query = graphql`
   query {
-    strapiHomePage {
-      heroBackgroundSmall {
-        url
-      }
-      heroBackgroundLarge {
-        url
-      }
-      heroLogo {
-        url
+    strapiTastyLogo {
+      tastyLogo {
+        alternativeText
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     }
     allStrapiRecipe {
