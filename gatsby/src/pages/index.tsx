@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { useEffect, useState } from 'react'
 import '../styles/Home.css'
 
-export const Head: HeadFC = () => <title>Tasty Recipes</title>
+export const Head: HeadFC = () => <title>Tasty</title>
 
 const Home = () => {
   const data = useStaticQuery(query)
