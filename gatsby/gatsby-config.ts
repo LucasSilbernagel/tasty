@@ -20,7 +20,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/tasty-logo.png',
+        icon: 'src/images/favicon-32x32.png',
       },
     },
     'gatsby-plugin-sharp',

@@ -1,4 +1,4 @@
-import { HeadFC, useStaticQuery, graphql } from 'gatsby'
+import { HeadFC, useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useEffect, useState } from 'react'
 import '../styles/Home.css'
@@ -10,7 +10,7 @@ const Home = () => {
   const tastyLogo = data.strapiTastyLogo.tastyLogo
   const recipes = data.allStrapiRecipe.nodes
   const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)]
-  console.log(recipes)
+  console.log(randomRecipe)
 
   const [screenWidth, setScreenWidth] = useState<number>(0)
 
@@ -36,11 +36,17 @@ const Home = () => {
           })`,
         }}
       >
-        <div className="pt-4 pl-4">
-          <GatsbyImage
-            image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
-            alt={tastyLogo.alternativeText}
-          />
+        <div className="pt-8 pl-8 w-[95px]">
+          <Link to="/">
+            <GatsbyImage
+              image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
+              alt={tastyLogo.alternativeText}
+            />
+          </Link>
+        </div>
+        <div className="absolute bg-white bottom-5 left-0 right-0 mx-auto w-5/12 p-4 text-center">
+          <h2>{randomRecipe.tagline}</h2>
+          <h1>{randomRecipe.name}</h1>
         </div>
       </div>
     </header>
