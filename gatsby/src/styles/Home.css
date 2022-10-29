@@ -1,3 +1,16 @@
 .HomeHero {
-  @apply w-full min-h-[85vh] bg-no-repeat bg-cover bg-center relative;
+  @apply w-full h-[80vh] md:h-[85vh] bg-no-repeat bg-cover bg-center relative;
+}
+
+.HomeHero .TextContainer {
+  @apply absolute bg-white bottom-5 left-0 right-0 mx-auto w-11/12 md:w-5/12 p-6 text-center;
+}
+
+.HomeHero .TextContainer .Tagline {
+  @apply relative uppercase tracking-wide font-bold mx-auto inline-block;
+}
+
+.HomeHero .TextContainer .Tagline:after {
+  @apply bg-teal-1 absolute h-1 -bottom-1 left-0 right-0;
+  content: '';
 }

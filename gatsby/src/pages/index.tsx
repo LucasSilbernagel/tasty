@@ -2,6 +2,7 @@ import { HeadFC, useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useEffect, useState } from 'react'
 import '../styles/Home.css'
+import { IRecipe } from '../types'
 
 export const Head: HeadFC = () => <title>Tasty</title>
 
@@ -9,8 +10,7 @@ const Home = () => {
   const data = useStaticQuery(query)
   const tastyLogo = data.strapiTastyLogo.tastyLogo
   const recipes = data.allStrapiRecipe.nodes
-  const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)]
-  console.log(randomRecipe)
+  const [randomRecipe, setRandomRecipe] = useState<IRecipe | null>(null)
 
   const [screenWidth, setScreenWidth] = useState<number>(0)
 
@@ -24,6 +24,13 @@ const Home = () => {
     }
   })
 
+  /** Select a random recipe to display in the hero on page load */
+  useEffect(() => {
+    if (recipes.length > 0) {
+      setRandomRecipe(recipes[Math.floor(Math.random() * recipes.length)])
+    }
+  }, [recipes])
+
   return (
     <header>
       <div
@@ -31,8 +38,8 @@ const Home = () => {
         style={{
           backgroundImage: `url(${process.env.STRAPI_API_URL}${
             screenWidth > 600
-              ? randomRecipe.largePhoto.url
-              : randomRecipe.smallPhoto.url
+              ? randomRecipe?.largePhoto.url
+              : randomRecipe?.smallPhoto.url
           })`,
         }}
       >
@@ -44,9 +51,14 @@ const Home = () => {
             />
           </Link>
         </div>
-        <div className="absolute bg-white bottom-5 left-0 right-0 mx-auto w-5/12 p-4 text-center">
-          <h2>{randomRecipe.tagline}</h2>
-          <h1>{randomRecipe.name}</h1>
+        <div className="TextContainer">
+          <h2 className="Tagline">{randomRecipe?.tagline}</h2>
+          <Link
+            to={`/recipes/${randomRecipe?.recipeSlug}`}
+            className="hover:text-orange-1 duration-500"
+          >
+            <h1 className="text-4xl mt-5 font-black">{randomRecipe?.name}</h1>
+          </Link>
         </div>
       </div>
     </header>

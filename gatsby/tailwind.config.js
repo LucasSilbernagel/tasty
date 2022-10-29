@@ -10,6 +10,9 @@ module.exports = {
         teal: {
           1: '#66CECF',
         },
+        orange: {
+          1: '#FF553D',
+        },
       },
     },
   },

@@ -19,7 +19,8 @@
     },
     "tagline": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 42
     },
     "largePhoto": {
       "type": "media",
