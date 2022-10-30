@@ -6,3 +6,11 @@
 html {
   font-family: "Roboto";
 }
+
+.AccentButton {
+  @apply uppercase bg-teal-1 px-4 h-8 mt-2 font-bold text-sm rounded-sm tracking-wide duration-200 hover:bg-black focus:bg-black hover:text-white focus:text-white;
+}
+
+.TextButton {
+  @apply uppercase text-sm px-2 border border-transparent hover:border-dashed hover:border-gray-600 focus:border-dashed focus:border-gray-600;
+}

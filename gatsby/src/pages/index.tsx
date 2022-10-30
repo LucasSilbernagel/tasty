@@ -3,6 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { useEffect, useState } from 'react'
 import '../styles/Home.css'
 import { IRecipe } from '../types'
+import NavBar from '../components/NavBar/NavBar'
 
 export const Head: HeadFC = () => <title>Tasty</title>
 
@@ -63,6 +64,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
+      <NavBar tastyLogo={tastyLogo} />
     </header>
   )
 }

@@ -1,0 +1,16 @@
+.NavBar {
+  @apply flex w-full justify-between flex-wrap mx-auto max-w-screen-lg;
+}
+
+.NavBar .MenuButton {
+  @apply w-[25px] h-[25px] ml-4 mt-3;
+}
+
+.NavBar .MenuButton-Line {
+  @apply w-full h-[2px] bg-gray-600 duration-500;
+}
+
+.NavBar .MenuButton:hover .MenuButton-Line, 
+.NavBar .MenuButton:focus .MenuButton-Line {
+  @apply bg-orange-1;
+}
