@@ -57,7 +57,9 @@ const Home = () => {
             to={`/recipes/${randomRecipe?.recipeSlug}`}
             className="hover:text-orange-1 duration-500"
           >
-            <h1 className="text-4xl mt-5 font-black">{randomRecipe?.name}</h1>
+            <h1 className="text-4xl mt-5 font-black tracking-wide">
+              {randomRecipe?.name}
+            </h1>
           </Link>
         </div>
       </div>
