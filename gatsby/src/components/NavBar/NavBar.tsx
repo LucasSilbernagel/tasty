@@ -1,6 +1,7 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { useState } from 'react'
 import './NavBar.css'
+import { FaSearch } from 'react-icons/fa'
 
 interface NavBarProps {
   tastyLogo: {
@@ -20,6 +21,7 @@ const NavBar = (props: NavBarProps) => {
         <button
           className="MenuButton"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? 'close menu' : 'open menu'}
         >
           <div className="MenuButton-Line mb-2"></div>
           <div className="MenuButton-Line mb-2"></div>
@@ -43,7 +45,14 @@ const NavBar = (props: NavBarProps) => {
             ? 'visible animate-slide-in'
             : 'invisible animate-slide-out'
         }`}
-      ></div>
+      >
+        <button>
+          <div className="flex items-center">
+            <FaSearch className="text-xl" />{' '}
+            <span className="ml-4">Search</span>
+          </div>
+        </button>
+      </div>
     </div>
   )
 }
