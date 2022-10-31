@@ -1,4 +1,5 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { useState } from 'react'
 import './NavBar.css'
 
 interface NavBarProps {
@@ -10,10 +11,16 @@ interface NavBarProps {
 
 const NavBar = (props: NavBarProps) => {
   const { tastyLogo } = props
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <div className="NavBar">
       <div className="flex">
-        <button className="MenuButton">
+        <button
+          className="MenuButton"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <div className="MenuButton-Line mb-2"></div>
           <div className="MenuButton-Line mb-2"></div>
           <div className="MenuButton-Line"></div>
@@ -30,6 +37,13 @@ const NavBar = (props: NavBarProps) => {
         <button className="TextButton">Sign in</button>
       </div>
       <div className="h-[1px] w-full bg-gray-300 mt-1"></div>
+      <div
+        className={`Menu ${
+          isMenuOpen
+            ? 'visible animate-slide-in'
+            : 'invisible animate-slide-out'
+        }`}
+      ></div>
     </div>
   )
 }

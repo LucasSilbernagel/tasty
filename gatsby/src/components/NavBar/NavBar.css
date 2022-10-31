@@ -14,3 +14,7 @@
 .NavBar .MenuButton:focus .MenuButton-Line {
   @apply bg-orange-1;
 }
+
+.NavBar .Menu {
+  @apply absolute top-0 w-[320px] h-[300px] bg-teal-1 duration-500;
+}
