@@ -1,7 +1,8 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { useState } from 'react'
 import './NavBar.css'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaTimes, FaRegBookmark } from 'react-icons/fa'
+import { Link } from 'gatsby'
 
 interface NavBarProps {
   tastyLogo: {
@@ -46,12 +47,29 @@ const NavBar = (props: NavBarProps) => {
             : 'invisible animate-slide-out'
         }`}
       >
-        <button>
-          <div className="flex items-center">
-            <FaSearch className="text-xl" />{' '}
-            <span className="ml-4">Search</span>
-          </div>
+        <div className="flex justify-between border border-transparent border-b-gray-400 pb-4 mb-8">
+          <Link to="/search">
+            <div className="flex items-center">
+              <FaSearch className="text-xl" />{' '}
+              <span className="ml-4">Search</span>
+            </div>
+          </Link>
+          <button aria-label="close menu" onClick={() => setIsMenuOpen(false)}>
+            <FaTimes className="text-xl" />
+          </button>
+        </div>
+        <button className="mb-8" onClick={() => alert('Subscribed!')}>
+          Subscribe
         </button>
+        <Link to="/my-recipes" className="flex items-center mb-8">
+          <FaRegBookmark className="mr-2" /> My Recipes
+        </Link>
+        <Link className="mb-8 flex" to="/all-recipes">
+          All Recipes
+        </Link>
+        <Link className="flex mb-8" to="/about-us">
+          About Us
+        </Link>
       </div>
     </div>
   )
