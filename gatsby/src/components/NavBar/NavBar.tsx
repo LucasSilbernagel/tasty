@@ -35,11 +35,15 @@ const NavBar = (props: NavBarProps) => {
           />
         </div>
       </div>
-      <div>
-        <button className="AccentButton">Subscribe</button>
-        <button className="TextButton">Sign in</button>
+      <div className="flex items-center">
+        <Link className="inline-block uppercase" to="/all-recipes">
+          Recipes
+        </Link>
       </div>
-      <div className="h-[1px] w-full bg-gray-300 mt-1"></div>
+      <button className="AccentButton" onClick={() => alert('Subscribed!')}>
+        Subscribe
+      </button>
+      <div className="h-[1px] w-full bg-gray-300 mt-1 lg:hidden"></div>
       <div
         className={`Menu ${
           isMenuOpen
