@@ -4,12 +4,20 @@ import { useEffect, useState } from 'react'
 import '../styles/Home.css'
 import { IRecipe } from '../types'
 import NavBar from '../components/NavBar/NavBar'
+import {
+  FaTwitter,
+  FaYoutube,
+  FaFacebook,
+  FaInstagram,
+  FaPinterest,
+} from 'react-icons/fa'
 
 export const Head: HeadFC = () => <title>Tasty</title>
 
 const Home = () => {
   const data = useStaticQuery(query)
   const tastyLogo = data.strapiTastyLogo.tastyLogo
+  const tastyLogoWhite = data.strapiTastyLogoWhite.tastyLogoWhite
   const recipes = data.allStrapiRecipe.nodes
   const [randomRecipe, setRandomRecipe] = useState<IRecipe | null>(null)
 
@@ -57,7 +65,7 @@ const Home = () => {
             <h2 className="Tagline">{randomRecipe?.tagline}</h2>
             <Link
               to={`/recipes/${randomRecipe?.recipeSlug}`}
-              className="hover:text-orange-1 duration-500"
+              className="hover:text-orange-1 focus:text-orange-1 duration-500"
             >
               <h1 className="text-4xl mt-5 font-black tracking-wide">
                 {randomRecipe?.name}
@@ -89,14 +97,110 @@ const Home = () => {
                       className="object-cover w-full h-[148px] sm:h-[309px] md:h-[250px]"
                     />
                   </div>
-                  <h4 className="font-bold text-lg">{recipe.name}</h4>
+                  <h4 className="font-bold text-lg hover:text-orange-1 duration-500">
+                    {recipe.name}
+                  </h4>
                 </Link>
               </li>
             )
           })}
         </ul>
       </main>
-      <footer></footer>
+      <footer className="bg-black text-white">
+        <div className="py-6 px-4 mx-auto max-w-screen-lg bg-black">
+          <div className="block sm:flex sm:justify-between max-w-lg">
+            <div className="w-[120px]">
+              <Link to="/">
+                <GatsbyImage
+                  image={
+                    tastyLogoWhite.localFile.childImageSharp.gatsbyImageData
+                  }
+                  alt={tastyLogoWhite.alternativeText}
+                />
+              </Link>
+            </div>
+            <div className="flex justify-between w-56 mt-4">
+              <a
+                href="#"
+                className="hover:scale-125 focus:scale-125 duration-300"
+                aria-label="Twitter"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="#"
+                className="hover:scale-125 focus:scale-125 duration-300"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
+              <a
+                href="#"
+                className="hover:scale-125 focus:scale-125 duration-300"
+                aria-label="Facebook"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="#"
+                className="hover:scale-125 focus:scale-125 duration-300"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="#"
+                className="hover:scale-125 focus:scale-125 duration-300"
+                aria-label="Pinterest"
+              >
+                <FaPinterest />
+              </a>
+            </div>
+          </div>
+          <div className="mt-8 block sm:flex justify-between max-w-lg">
+            <button
+              className="hover:underline focus:underline underline-offset-4"
+              onClick={() => alert('Subscribed!')}
+            >
+              Subscribe
+            </button>
+            <Link
+              to="/about-us"
+              className="block mt-4 sm:mt-0 hover:underline focus:underline underline-offset-4"
+            >
+              About Us
+            </Link>
+          </div>
+          <div className="block sm:flex justify-between max-w-lg">
+            <div className="mt-4 sm:mt-8">
+              <p>
+                Inspired by{' '}
+                <a
+                  href="https://www.delish.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:underline focus:underline underline-offset-4"
+                >
+                  Delish.com
+                </a>
+              </p>
+            </div>
+            <div className="mt-4 sm:mt-8">
+              <p>
+                Built by{' '}
+                <a
+                  href="https://lucassilbernagel.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:underline focus:underline underline-offset-4"
+                >
+                  Lucas Silbernagel
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   )
 }
@@ -107,6 +211,16 @@ const query = graphql`
   query {
     strapiTastyLogo {
       tastyLogo {
+        alternativeText
+        localFile {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+    strapiTastyLogoWhite {
+      tastyLogoWhite {
         alternativeText
         localFile {
           childImageSharp {

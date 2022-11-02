@@ -18,6 +18,12 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-postcss',
     {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en-US',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/favicon-32x32.png',
@@ -39,7 +45,7 @@ const config: GatsbyConfig = {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: ['recipe', 'author'],
-        singleTypes: ['tasty-logo'],
+        singleTypes: ['tasty-logo', 'tasty-logo-white'],
       },
     },
     {

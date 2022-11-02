@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "tasty_logo_whites",
+  "info": {
+    "singularName": "tasty-logo-white",
+    "pluralName": "tasty-logo-whites",
+    "displayName": "tastyLogoWhite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tastyLogoWhite": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

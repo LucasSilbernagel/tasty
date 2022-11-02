@@ -1,5 +1,5 @@
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './NavBar.css'
 import { FaSearch, FaTimes, FaRegBookmark } from 'react-icons/fa'
 import { Link } from 'gatsby'
@@ -15,6 +15,17 @@ const NavBar = (props: NavBarProps) => {
   const { tastyLogo } = props
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          setIsMenuOpen(false)
+        }
+      })
+    }
+    document.removeEventListener('keydown', (e) => e.key === 'Escape')
+  }, [isMenuOpen])
 
   return (
     <div className="NavBar">
@@ -47,6 +58,12 @@ const NavBar = (props: NavBarProps) => {
         Subscribe
       </button>
       <div className="h-[1px] w-full bg-gray-300 mt-1 lg:hidden"></div>
+      {isMenuOpen && (
+        <div
+          onClick={() => setIsMenuOpen(false)}
+          className="fixed top-0 left-0 right-0 bottom-0 z-10"
+        ></div>
+      )}
       <div
         className={`Menu ${
           isMenuOpen
@@ -65,16 +82,28 @@ const NavBar = (props: NavBarProps) => {
             <FaTimes className="text-xl" />
           </button>
         </div>
-        <button className="mb-8" onClick={() => alert('Subscribed!')}>
+        <button
+          className="mb-8 hover:underline focus:underline underline-offset-4"
+          onClick={() => alert('Subscribed!')}
+        >
           Subscribe
         </button>
-        <Link to="/my-recipes" className="flex items-center mb-8">
-          <FaRegBookmark className="mr-2" /> My Recipes
+        <Link
+          to="/my-recipes"
+          className="flex items-center mb-8 hover:underline focus:underline underline-offset-4"
+        >
+          <FaRegBookmark className="mr-2 " /> My Recipes
         </Link>
-        <Link className="mb-8 flex" to="/all-recipes">
+        <Link
+          className="mb-8 flex hover:underline focus:underline underline-offset-4"
+          to="/all-recipes"
+        >
           All Recipes
         </Link>
-        <Link className="flex mb-8" to="/about-us">
+        <Link
+          className="flex mb-8 hover:underline focus:underline underline-offset-4"
+          to="/about-us"
+        >
           About Us
         </Link>
       </div>
