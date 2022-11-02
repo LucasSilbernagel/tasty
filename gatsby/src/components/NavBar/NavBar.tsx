@@ -34,11 +34,14 @@ const NavBar = (props: NavBarProps) => {
             alt={tastyLogo.alternativeText}
           />
         </div>
-      </div>
-      <div className="flex items-center">
-        <Link className="inline-block uppercase" to="/all-recipes">
-          Recipes
-        </Link>
+        <div className="flex items-center ml-2 sm:ml-8">
+          <Link
+            className="inline-block uppercase hover:underline focus:underline underline-offset-4"
+            to="/all-recipes"
+          >
+            Recipes
+          </Link>
+        </div>
       </div>
       <button className="AccentButton" onClick={() => alert('Subscribed!')}>
         Subscribe

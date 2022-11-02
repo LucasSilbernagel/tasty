@@ -33,39 +33,71 @@ const Home = () => {
   }, [recipes])
 
   return (
-    <header>
-      <div
-        className={`HomeHero`}
-        style={{
-          backgroundImage: `url(${process.env.STRAPI_API_URL}${
-            screenWidth > 600
-              ? randomRecipe?.largePhoto.url
-              : randomRecipe?.smallPhoto.url
-          })`,
-        }}
-      >
-        <div className="pt-8 pl-8 w-[95px]">
-          <Link to="/">
-            <GatsbyImage
-              image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
-              alt={tastyLogo.alternativeText}
-            />
-          </Link>
+    <>
+      <header>
+        <div
+          className={`HomeHero`}
+          style={{
+            backgroundImage: `url(${process.env.STRAPI_API_URL}${
+              screenWidth > 600
+                ? randomRecipe?.largePhoto.url
+                : randomRecipe?.smallPhoto.url
+            })`,
+          }}
+        >
+          <div className="pt-8 pl-8 w-[95px]">
+            <Link to="/">
+              <GatsbyImage
+                image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
+                alt={tastyLogo.alternativeText}
+              />
+            </Link>
+          </div>
+          <div className="TextContainer">
+            <h2 className="Tagline">{randomRecipe?.tagline}</h2>
+            <Link
+              to={`/recipes/${randomRecipe?.recipeSlug}`}
+              className="hover:text-orange-1 duration-500"
+            >
+              <h1 className="text-4xl mt-5 font-black tracking-wide">
+                {randomRecipe?.name}
+              </h1>
+            </Link>
+          </div>
         </div>
-        <div className="TextContainer">
-          <h2 className="Tagline">{randomRecipe?.tagline}</h2>
-          <Link
-            to={`/recipes/${randomRecipe?.recipeSlug}`}
-            className="hover:text-orange-1 duration-500"
-          >
-            <h1 className="text-4xl mt-5 font-black tracking-wide">
-              {randomRecipe?.name}
-            </h1>
-          </Link>
-        </div>
-      </div>
-      <NavBar tastyLogo={tastyLogo} />
-    </header>
+        <NavBar tastyLogo={tastyLogo} />
+      </header>
+      <main className="py-6 px-2 mx-auto max-w-screen-lg">
+        <h2 className="font-bold text-4xl underline underline-offset-8 decoration-yellow-1 mb-4">
+          Editor&apos;s Picks
+        </h2>
+        <h3 className="text-lg mb-6">
+          Recipes we can&apos;t stop talking about.
+        </h3>
+        <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          {recipes.slice(0, 4).map((recipe: IRecipe) => {
+            return (
+              <li key={recipe.id}>
+                <Link to={`/recipes/${recipe.recipeSlug}`}>
+                  <div className="w-full h-[148px] sm:h-[309px] md:h-[250px]">
+                    <GatsbyImage
+                      image={
+                        recipe.smallPhoto.localFile.childImageSharp
+                          .gatsbyImageData
+                      }
+                      alt={recipe.name}
+                      className="object-cover w-full h-[148px] sm:h-[309px] md:h-[250px]"
+                    />
+                  </div>
+                  <h4 className="font-bold text-lg">{recipe.name}</h4>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+      </main>
+      <footer></footer>
+    </>
   )
 }
 
@@ -113,6 +145,11 @@ const query = graphql`
         largePhoto {
           alternativeText
           url
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
         name
         prepTime
@@ -121,6 +158,11 @@ const query = graphql`
         smallPhoto {
           alternativeText
           url
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
         tagline
         totalTime

@@ -14,6 +14,9 @@ module.exports = {
         orange: {
           1: '#FF553D',
         },
+        yellow: {
+          1: '#FEC035',
+        },
       },
       keyframes: {
         slideIn: {
