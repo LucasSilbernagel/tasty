@@ -21,18 +21,6 @@ const Home = () => {
   const recipes = data.allStrapiRecipe.nodes
   const [randomRecipe, setRandomRecipe] = useState<IRecipe | null>(null)
 
-  const [screenWidth, setScreenWidth] = useState<number>(0)
-
-  /** Keep track of screen width */
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const handleResize = () => setScreenWidth(window.innerWidth)
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  })
-
   /** Select a random recipe to display in the hero on page load */
   useEffect(() => {
     if (recipes.length > 0) {
@@ -43,17 +31,25 @@ const Home = () => {
   return (
     <>
       <header>
-        <div
-          className={`HomeHero`}
-          style={{
-            backgroundImage: `url(${process.env.STRAPI_API_URL}${
-              screenWidth > 600
-                ? randomRecipe?.largePhoto.url
-                : randomRecipe?.smallPhoto.url
-            })`,
-          }}
-        >
-          <div className="pt-8 pl-8 w-[95px]">
+        <div className={`HomeHero`}>
+          {randomRecipe &&
+            randomRecipe.largePhoto.localFile.childImageSharp
+              .gatsbyImageData && (
+              <GatsbyImage
+                style={{
+                  gridArea: '1/1',
+                  aspectRatio: '3/1',
+                  width: '100%',
+                  height: '100%',
+                }}
+                alt=""
+                image={
+                  randomRecipe?.largePhoto.localFile.childImageSharp
+                    .gatsbyImageData
+                }
+              />
+            )}
+          <div className="w-[95px] absolute top-4 left-4">
             <Link to="/">
               <GatsbyImage
                 image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
