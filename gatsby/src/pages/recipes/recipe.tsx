@@ -7,6 +7,7 @@ import { DateTime } from 'luxon'
 import { FaBookmark } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 import './recipe.css'
+import rehypeRaw from 'rehype-raw'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
   const { name } = pageContext
@@ -23,6 +24,8 @@ const RecipePage = ({ pageContext }: any) => {
     yields,
     prepTime,
     totalTime,
+    ingredients,
+    directions,
   } = pageContext
 
   return (
@@ -51,10 +54,10 @@ const RecipePage = ({ pageContext }: any) => {
           </p>
         </div>
         <div className="flex max-w-max mx-auto gap-4 mt-8 flex-col sm:flex-row">
-          <button className="bg-blue-1 text-white uppercase p-2 text-sm">
+          <button className="bg-blue-1 text-white uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black">
             Jump to recipe
           </button>
-          <button className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm">
+          <button className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black">
             <FaBookmark className="mr-2 inline-block" /> Save to my recipes
           </button>
         </div>
@@ -81,6 +84,25 @@ const RecipePage = ({ pageContext }: any) => {
               <p>Total time:</p>
               <p className="text-blue-1">{totalTime}</p>
             </div>
+          </div>
+        </div>
+        <div className="Instructions">
+          <div className="max-w-[300px]">
+            <h2 className="font-black text-xl mb-8">Ingredients</h2>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+              {ingredients.data.ingredients}
+            </ReactMarkdown>
+          </div>
+          <div className="max-w-[650px]">
+            <div className="flex justify-between">
+              <h2 className="font-black text-xl mb-8">Directions</h2>
+              <button className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm h-[36px] duration-300 hover:bg-black focus:bg-black">
+                <FaBookmark className="mr-2 inline-block" /> Save to my recipes
+              </button>
+            </div>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]} className="Directions">
+              {directions.data.directions}
+            </ReactMarkdown>
           </div>
         </div>
       </main>

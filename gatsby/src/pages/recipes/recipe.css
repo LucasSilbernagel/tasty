@@ -19,3 +19,15 @@
   content: '';
   @apply h-[16px] border-l-black border hidden sm:flex absolute top-1/2 -right-1/2;
 }
+
+.Recipe .Instructions {
+  @apply flex flex-col sm:flex-row mt-4 text-left gap-8;
+}
+
+.Recipe .Instructions .InstructionHeader {
+  @apply text-blue-1 font-black tracking-wider inline-block mb-4 text-lg;
+}
+
+.Recipe .Instructions .Directions {
+  @apply leading-relaxed text-lg;
+}
