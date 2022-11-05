@@ -8,6 +8,7 @@ import { FaBookmark } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 import './recipe.css'
 import rehypeRaw from 'rehype-raw'
+import RecipeCards from '../../components/RecipeCards/RecipeCards'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
   const { name } = pageContext
@@ -26,6 +27,7 @@ const RecipePage = ({ pageContext }: any) => {
     totalTime,
     ingredients,
     directions,
+    recipeSlug,
   } = pageContext
 
   return (
@@ -124,6 +126,13 @@ const RecipePage = ({ pageContext }: any) => {
           <div className="mt-2">
             <p className="text-left">{author.bio}</p>
           </div>
+        </div>
+        <div>
+          <RecipeCards
+            title="More recipes"
+            currentRecipeSlug={recipeSlug}
+            numCards={4}
+          />
         </div>
       </main>
       <Footer />

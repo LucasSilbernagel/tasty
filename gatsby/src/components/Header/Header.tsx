@@ -1,27 +1,18 @@
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { useEffect, useState } from 'react'
 import './Header.css'
 import { IRecipe } from '../../types'
 import NavBar from '../../components/NavBar/NavBar'
 
 interface HeaderProps {
   isHomePage?: boolean
+  randomRecipe?: IRecipe | null
 }
 
 const Header = (props: HeaderProps) => {
-  const { isHomePage } = props
+  const { isHomePage, randomRecipe } = props
   const data = useStaticQuery(query)
   const tastyLogo = data.strapiTastyLogo.tastyLogo
-  const recipes = data.allStrapiRecipe.nodes
-  const [randomRecipe, setRandomRecipe] = useState<IRecipe | null>(null)
-
-  /** Select a random recipe to display in the hero on page load */
-  useEffect(() => {
-    if (recipes.length > 0) {
-      setRandomRecipe(recipes[Math.floor(Math.random() * recipes.length)])
-    }
-  }, [recipes])
 
   return (
     <header>
@@ -82,60 +73,6 @@ const query = graphql`
             gatsbyImageData
           }
         }
-      }
-    }
-    allStrapiRecipe {
-      nodes {
-        author {
-          bio
-          jobTitle
-          name
-          photo {
-            alternativeText
-            url
-          }
-        }
-        id
-        directions {
-          data {
-            directions
-          }
-        }
-        ingredients {
-          data {
-            ingredients
-          }
-        }
-        introText {
-          data {
-            introText
-          }
-        }
-        largePhoto {
-          alternativeText
-          url
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        name
-        prepTime
-        publishedAt
-        recipeSlug
-        smallPhoto {
-          alternativeText
-          url
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-        tagline
-        totalTime
-        yields
       }
     }
   }

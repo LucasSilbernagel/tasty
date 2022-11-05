@@ -40,10 +40,12 @@ const NavBar = (props: NavBarProps) => {
           <div className="MenuButton-Line"></div>
         </button>
         <div className="w-[75px] flex items-center ml-2 mt-3">
-          <GatsbyImage
-            image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
-            alt={tastyLogo.alternativeText}
-          />
+          <Link to="/">
+            <GatsbyImage
+              image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
+              alt={tastyLogo.alternativeText}
+            />
+          </Link>
         </div>
         <div className="flex items-center ml-2 sm:ml-8">
           <Link
