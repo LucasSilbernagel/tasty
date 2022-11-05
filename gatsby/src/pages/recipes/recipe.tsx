@@ -14,7 +14,17 @@ export const Head: HeadFC = ({ pageContext }: any) => {
 }
 
 const RecipePage = ({ pageContext }: any) => {
-  const { name, author, publishedAt, largePhoto, introText } = pageContext
+  const {
+    name,
+    author,
+    publishedAt,
+    largePhoto,
+    introText,
+    yields,
+    prepTime,
+    totalTime,
+  } = pageContext
+
   return (
     <>
       <Header />
@@ -56,6 +66,22 @@ const RecipePage = ({ pageContext }: any) => {
         </div>
         <div className="IntroText">
           <ReactMarkdown>{introText.data.introText}</ReactMarkdown>
+        </div>
+        <div className="uppercase bg-teal-3 font-bold">
+          <div className="flex justify-between py-4 mx-auto max-w-md">
+            <div>
+              <p>Yields:</p>
+              <p className="text-blue-1">{yields}</p>
+            </div>
+            <div className="PrepTime">
+              <p>Prep time:</p>
+              <p className="text-blue-1">{prepTime}</p>
+            </div>
+            <div>
+              <p>Total time:</p>
+              <p className="text-blue-1">{totalTime}</p>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />

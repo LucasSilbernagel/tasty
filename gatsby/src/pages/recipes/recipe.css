@@ -1,3 +1,17 @@
 .Recipe .IntroText {
   @apply my-4 text-left max-w-xl mx-auto leading-relaxed text-lg;
 }
+
+.Recipe .PrepTime {
+  @apply relative;
+}
+
+.Recipe .PrepTime::before {
+  content: '';
+  @apply h-[16px] border-l-black border hidden sm:flex absolute top-1/2 -left-1/2;
+}
+
+.Recipe .PrepTime::after {
+  content: '';
+  @apply h-[16px] border-l-black border hidden sm:flex absolute top-1/2 -right-1/2;
+}
