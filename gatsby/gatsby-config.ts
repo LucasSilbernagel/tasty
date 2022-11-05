@@ -15,6 +15,7 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     'gatsby-plugin-image',
+    'gatsby-plugin-smoothscroll',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-postcss',
     {

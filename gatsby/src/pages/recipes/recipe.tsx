@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown'
 import './recipe.css'
 import rehypeRaw from 'rehype-raw'
 import RecipeCards from '../../components/RecipeCards/RecipeCards'
+import scrollTo from 'gatsby-plugin-smoothscroll'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
   const { name } = pageContext
@@ -56,7 +57,10 @@ const RecipePage = ({ pageContext }: any) => {
           </p>
         </div>
         <div className="flex max-w-max mx-auto gap-4 mt-8 flex-col sm:flex-row">
-          <button className="bg-blue-1 text-white uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black">
+          <button
+            onClick={() => scrollTo('#recipe-top')}
+            className="bg-blue-1 text-white uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black"
+          >
             Jump to recipe
           </button>
           <button className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black">
@@ -72,7 +76,7 @@ const RecipePage = ({ pageContext }: any) => {
         <div className="IntroText">
           <ReactMarkdown>{introText.data.introText}</ReactMarkdown>
         </div>
-        <div className="uppercase bg-teal-3 font-bold">
+        <div className="uppercase bg-teal-3 font-bold" id="recipe-top">
           <div className="flex justify-between py-4 mx-auto max-w-md">
             <div>
               <p>Yields:</p>
