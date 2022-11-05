@@ -105,6 +105,26 @@ const RecipePage = ({ pageContext }: any) => {
             </ReactMarkdown>
           </div>
         </div>
+        <div className="my-8 max-w-xl mx-auto border border-y-gray-300 border-x-transparent py-8">
+          <div className="text-sm uppercase flex gap-4">
+            <div>
+              <p>
+                <Link
+                  className="underline underline-offset-4 hover:text-blue-1 focus:text-blue-1"
+                  to={`/authors/${author.authorSlug}`}
+                >
+                  {author.name}
+                </Link>
+              </p>
+            </div>
+            <div>
+              <p>{author.jobTitle}</p>
+            </div>
+          </div>
+          <div className="mt-2">
+            <p className="text-left">{author.bio}</p>
+          </div>
+        </div>
       </main>
       <Footer />
     </>
