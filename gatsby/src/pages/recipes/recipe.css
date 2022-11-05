@@ -2,6 +2,10 @@
   @apply my-4 text-left max-w-xl mx-auto leading-relaxed text-lg;
 }
 
+.Recipe .IntroText strong {
+  @apply inline-block mt-4;
+}
+
 .Recipe .PrepTime {
   @apply relative;
 }
