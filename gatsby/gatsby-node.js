@@ -16,9 +16,13 @@ exports.createPages = async function ({ actions, graphql }) {
             bio
             jobTitle
             name
+            authorSlug
             photo {
-              alternativeText
-              url
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
             }
           }
           id
@@ -54,13 +58,48 @@ exports.createPages = async function ({ actions, graphql }) {
           yields
         }
       }
+      allStrapiAuthor {
+        nodes {
+          bio
+          jobTitle
+          name
+          authorSlug
+          photo {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          recipes {
+            recipeSlug
+            smallPhoto {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            name
+          }
+        }
+      }
     }
   `)
+
   data.allStrapiRecipe.nodes.forEach((node) => {
     const slug = node.recipeSlug
     actions.createPage({
       path: `/recipes/${slug}`,
       component: require.resolve(`./src/pages/recipes/recipe.tsx`),
+      context: node,
+    })
+  })
+  data.allStrapiAuthor.nodes.forEach((node) => {
+    const slug = node.authorSlug
+    actions.createPage({
+      path: `/authors/${slug}`,
+      component: require.resolve(`./src/pages/authors/author.tsx`),
       context: node,
     })
   })

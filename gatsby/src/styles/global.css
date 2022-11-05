@@ -14,3 +14,7 @@ html {
 .TextButton {
   @apply uppercase text-sm px-2 border border-transparent focus:border-dashed focus:border-gray-600;
 }
+
+main {
+  @apply min-h-[72vh] py-6 px-2 mx-auto max-w-screen-lg text-center;
+}

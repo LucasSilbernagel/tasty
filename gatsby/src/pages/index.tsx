@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <Header isHomePage={true} />
-      <main className="py-6 px-2 mx-auto max-w-screen-lg">
+      <main>
         <h2 className="font-bold text-4xl underline underline-offset-8 decoration-yellow-1 mb-4">
           Editor&apos;s Picks
         </h2>

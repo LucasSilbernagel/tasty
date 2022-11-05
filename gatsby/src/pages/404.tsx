@@ -8,12 +8,15 @@ const NotFoundPage = () => {
   return (
     <>
       <Header />
-      <main className="min-h-[72vh] py-6 px-2 mx-auto max-w-screen-lg text-center">
+      <main>
         <h1 className="font-black text-4xl mt-20 mb-8">
           Oops! We don&apos;t have the page you&apos;re looking for.
         </h1>
         <p className="text-xl">
-          <Link className="underline underline-offset-4" to="/">
+          <Link
+            className="underline underline-offset-4 duration-300 hover:text-blue-1 focus:text-blue-1"
+            to="/"
+          >
             Return to the homepage
           </Link>
           .

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "author",
     "pluralName": "authors",
-    "displayName": "Author"
+    "displayName": "Author",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -20,12 +21,12 @@
       "required": true
     },
     "photo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "bio": {
       "type": "text",
@@ -36,6 +37,11 @@
       "relation": "oneToMany",
       "target": "api::recipe.recipe",
       "mappedBy": "author"
+    },
+    "authorSlug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
