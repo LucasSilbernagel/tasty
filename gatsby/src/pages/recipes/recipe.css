@@ -1,0 +1,3 @@
+.Recipe .IntroText {
+  @apply my-4 text-left max-w-xl mx-auto leading-relaxed text-lg;
+}

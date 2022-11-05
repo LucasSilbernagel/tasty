@@ -42,8 +42,11 @@ exports.createPages = async function ({ actions, graphql }) {
             }
           }
           largePhoto {
-            alternativeText
-            url
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
           name
           prepTime
