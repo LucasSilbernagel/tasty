@@ -73,7 +73,7 @@ const NavBar = (props: NavBarProps) => {
             : 'invisible animate-slide-out'
         }`}
       >
-        <div className="flex justify-between border border-transparent border-b-gray-400 pb-4 mb-8">
+        <div className="flex justify-between border border-transparent border-b-gray-400 pb-4 mb-8 p-4">
           <Link to="/search">
             <div className="flex items-center">
               <FaSearch className="text-xl" />{' '}
@@ -84,30 +84,38 @@ const NavBar = (props: NavBarProps) => {
             <FaTimes className="text-xl" />
           </button>
         </div>
-        <button
-          className="mb-8 hover:underline focus:underline underline-offset-4"
-          onClick={() => alert('Subscribed!')}
-        >
-          Subscribe
-        </button>
-        <Link
-          to="/my-recipes"
-          className="flex items-center mb-8 hover:underline focus:underline underline-offset-4"
-        >
-          <FaRegBookmark className="mr-2 " /> My Recipes
-        </Link>
-        <Link
-          className="mb-8 flex hover:underline focus:underline underline-offset-4"
-          to="/all-recipes"
-        >
-          All Recipes
-        </Link>
-        <Link
-          className="flex mb-8 hover:underline focus:underline underline-offset-4"
-          to="/about-us"
-        >
-          About Us
-        </Link>
+        <div className="hover:bg-teal-1 focus:bg-teal-1 p-4">
+          <button
+            className="hover:underline focus:underline underline-offset-4 w-full text-left"
+            onClick={() => alert('Subscribed!')}
+          >
+            Subscribe
+          </button>
+        </div>
+        <div className="p-4 hover:bg-teal-1 focus:bg-teal-1">
+          <Link
+            to="/my-recipes"
+            className="flex items-center hover:underline focus:underline underline-offset-4"
+          >
+            <FaRegBookmark className="mr-2 " /> My Recipes
+          </Link>
+        </div>
+        <div className="p-4 hover:bg-teal-1 focus:bg-teal-1">
+          <Link
+            className="flex hover:underline focus:underline underline-offset-4"
+            to="/all-recipes"
+          >
+            All Recipes
+          </Link>
+        </div>
+        <div className="p-4 hover:bg-teal-1 focus:bg-teal-1">
+          <Link
+            className="flex hover:underline focus:underline underline-offset-4"
+            to="/about-us"
+          >
+            About Us
+          </Link>
+        </div>
       </div>
     </div>
   )
