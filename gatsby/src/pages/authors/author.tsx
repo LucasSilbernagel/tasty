@@ -1,20 +1,76 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HeadFC } from 'gatsby'
+import { HeadFC, Link } from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
+import { IRecipe } from '../../types'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
-  const { name } = pageContext
-  return <title>Tasty | {name}</title>
+  return <title>Tasty | {pageContext.name}</title>
 }
 
 const AuthorPage = ({ pageContext }: any) => {
-  const { name } = pageContext
   return (
     <>
       <Header />
       <main>
-        <h1 className="font-black text-4xl">{name}</h1>
+        <div className="flex text-left gap-6 flex-col sm:flex-row">
+          <div>
+            <GatsbyImage
+              className="rounded-full w-[120px] h-[120px]"
+              alt={pageContext.name}
+              image={
+                pageContext.photo.localFile.childImageSharp.gatsbyImageData
+              }
+            />
+          </div>
+          <div>
+            <h1 className="font-black text-5xl">{pageContext.name}</h1>
+            <h2 className="text-teal-4 uppercase font-bold my-3">
+              {pageContext.jobTitle}
+            </h2>
+            <p className="text-lg">{pageContext.bio}</p>
+          </div>
+        </div>
+        <div className="mt-12">
+          <ul>
+            {pageContext.recipes.map((recipe: IRecipe) => {
+              return (
+                <li
+                  key={recipe.id}
+                  className="flex justify-between mb-8 flex-col lg:flex-row"
+                >
+                  <Link
+                    to={`/recipes/${recipe.recipeSlug}`}
+                    className="text-left pt-4"
+                  >
+                    <h3 className="font-black text-3xl tracking-wide duration-300 hover:text-teal-4 focus:text-teal-1">
+                      {recipe.name}
+                    </h3>
+                    <p className="tracking-wide my-2">{recipe.tagline}</p>
+                    <p className="font-bold text-sm">
+                      by <span className="uppercase">{pageContext.name}</span>
+                    </p>
+                  </Link>
+                  <Link
+                    to={`/recipes/${recipe.recipeSlug}`}
+                    aria-label={recipe.name}
+                    className="max-w-[548px] max-h-[275px] duration-300 hover:contrast-75"
+                  >
+                    <GatsbyImage
+                      className="w-full h-full max-h-[275px] object-contain"
+                      alt={recipe.name}
+                      image={
+                        recipe.largePhoto.localFile.childImageSharp
+                          .gatsbyImageData
+                      }
+                    />
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </main>
       <Footer />
     </>

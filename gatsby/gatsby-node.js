@@ -76,7 +76,9 @@ exports.createPages = async function ({ actions, graphql }) {
           }
           recipes {
             recipeSlug
-            smallPhoto {
+            tagline
+            id
+            largePhoto {
               localFile {
                 childImageSharp {
                   gatsbyImageData

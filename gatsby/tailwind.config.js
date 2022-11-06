@@ -11,6 +11,7 @@ module.exports = {
           1: '#66CECF',
           2: '#C6E9F0',
           3: '#EAF7FB',
+          4: '#268090',
         },
         orange: {
           1: '#FF553D',
