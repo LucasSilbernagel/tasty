@@ -13,3 +13,11 @@ export interface IRecipe {
   recipeSlug: string
   id: string
 }
+
+export interface IAuthor {
+  name: string
+  id: string
+  photo: IPhoto
+  jobTitle: string
+  authorSlug: string
+}

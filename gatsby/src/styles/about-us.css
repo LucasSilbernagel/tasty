@@ -1,0 +1,7 @@
+.Video-Container {
+  @apply relative h-[70vh];
+}
+
+.Video-Container video {
+  @apply object-cover top-0 left-0 absolute h-full;
+}
