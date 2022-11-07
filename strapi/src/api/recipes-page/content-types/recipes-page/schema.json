@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "recipes_pages",
+  "info": {
+    "singularName": "recipes-page",
+    "pluralName": "recipes-pages",
+    "displayName": "RecipesPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

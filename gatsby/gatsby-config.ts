@@ -46,7 +46,12 @@ const config: GatsbyConfig = {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
         collectionTypes: ['recipe', 'author'],
-        singleTypes: ['tasty-logo', 'tasty-logo-white', 'about-page'],
+        singleTypes: [
+          'tasty-logo',
+          'tasty-logo-white',
+          'about-page',
+          'recipes-page',
+        ],
       },
     },
     {

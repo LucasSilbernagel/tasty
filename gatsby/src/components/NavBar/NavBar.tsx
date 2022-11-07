@@ -59,7 +59,6 @@ const NavBar = (props: NavBarProps) => {
       <button className="AccentButton" onClick={() => alert('Subscribed!')}>
         Subscribe
       </button>
-      <div className="h-[1px] w-full bg-gray-300 mt-1 lg:hidden"></div>
       {isMenuOpen && (
         <div
           onClick={() => setIsMenuOpen(false)}

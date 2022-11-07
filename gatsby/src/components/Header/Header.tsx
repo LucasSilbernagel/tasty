@@ -15,7 +15,7 @@ const Header = (props: HeaderProps) => {
   const tastyLogo = data.strapiTastyLogo.tastyLogo
 
   return (
-    <header className="lg:border border-b-gray-1 pb-2">
+    <header className="border border-b-gray-1 pb-2">
       {isHomePage && (
         <div className={`HomeHero`}>
           {randomRecipe &&
