@@ -62,6 +62,7 @@ const query = graphql`
     }
     strapiTastyLogo {
       tastyLogo {
+        alternativeText
         localFile {
           childImageSharp {
             gatsbyImageData

@@ -53,8 +53,11 @@ exports.createPages = async function ({ actions, graphql }) {
           publishedAt
           recipeSlug
           smallPhoto {
-            alternativeText
-            url
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
           tagline
           totalTime

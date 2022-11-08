@@ -43,9 +43,11 @@ const RecipeCards = (props: RecipeCardProps) => {
                     className="object-cover w-full h-[148px] sm:h-[309px] md:h-[250px]"
                   />
                 </div>
-                <h4 className="font-bold text-lg hover:text-orange-1 duration-500">
-                  {recipe.name}
-                </h4>
+                <div className="w-full flex justify-center">
+                  <h4 className="font-bold text-lg text-left hover:text-orange-1 duration-500">
+                    {recipe.name}
+                  </h4>
+                </div>
               </Link>
             </li>
           )

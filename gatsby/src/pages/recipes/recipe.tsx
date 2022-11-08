@@ -10,6 +10,8 @@ import './recipe.css'
 import rehypeRaw from 'rehype-raw'
 import RecipeCards from '../../components/RecipeCards/RecipeCards'
 import scrollTo from 'gatsby-plugin-smoothscroll'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
   const { name } = pageContext
@@ -19,9 +21,11 @@ export const Head: HeadFC = ({ pageContext }: any) => {
 const RecipePage = ({ pageContext }: any) => {
   const {
     name,
+    id,
     author,
     publishedAt,
     largePhoto,
+    smallPhoto,
     introText,
     yields,
     prepTime,
@@ -30,6 +34,25 @@ const RecipePage = ({ pageContext }: any) => {
     directions,
     recipeSlug,
   } = pageContext
+
+  const saveRecipe = () => {
+    const savedRecipes = localStorage.getItem('myRecipes')
+    const newRecipe = {
+      id: id,
+      name: name,
+      smallPhoto: smallPhoto,
+      recipeSlug: recipeSlug,
+    }
+    if (savedRecipes !== null) {
+      localStorage.setItem(
+        'myRecipes',
+        JSON.stringify([...JSON.parse(savedRecipes), newRecipe])
+      )
+    } else {
+      localStorage.setItem('myRecipes', JSON.stringify([newRecipe]))
+    }
+    toast('Saved!')
+  }
 
   return (
     <>
@@ -63,7 +86,10 @@ const RecipePage = ({ pageContext }: any) => {
           >
             Jump to recipe
           </button>
-          <button className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black">
+          <button
+            onClick={saveRecipe}
+            className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black"
+          >
             <FaBookmark className="mr-2 inline-block" /> Save to my recipes
           </button>
         </div>
@@ -102,7 +128,10 @@ const RecipePage = ({ pageContext }: any) => {
           <div className="max-w-[650px]">
             <div className="flex justify-between">
               <h2 className="font-black text-xl mb-8">Directions</h2>
-              <button className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm h-[36px] duration-300 hover:bg-black focus:bg-black">
+              <button
+                onClick={saveRecipe}
+                className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm h-[36px] duration-300 hover:bg-black focus:bg-black"
+              >
                 <FaBookmark className="mr-2 inline-block" /> Save to my recipes
               </button>
             </div>
@@ -140,6 +169,16 @@ const RecipePage = ({ pageContext }: any) => {
         </div>
       </main>
       <Footer />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        closeOnClick
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="colored"
+        toastStyle={{ backgroundColor: '#004685', color: '#FFFFFF' }}
+      />
     </>
   )
 }
