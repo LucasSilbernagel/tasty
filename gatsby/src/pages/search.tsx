@@ -1,8 +1,8 @@
 import { graphql, HeadFC, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { ChangeEvent, useState } from 'react'
-import Footer from '../components/Footer/Footer'
-import Header from '../components/Header/Header'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 import { IRecipe } from '../types'
 
 export const Head: HeadFC = () => <title>Tasty | Search</title>

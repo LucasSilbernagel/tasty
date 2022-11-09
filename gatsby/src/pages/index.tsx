@@ -1,7 +1,7 @@
 import { graphql, HeadFC, useStaticQuery } from 'gatsby'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
-import RecipeCards from '../components/RecipeCards/RecipeCards'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import RecipeCards from '../components/RecipeCards'
 import { useEffect, useState } from 'react'
 import { IRecipe } from '../types'
 

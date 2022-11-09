@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeadFC, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Footer from '../../components/Footer/Footer'
-import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
 import { IRecipe } from '../../types'
 
 export const Head: HeadFC = ({ pageContext }: any) => {

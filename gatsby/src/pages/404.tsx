@@ -1,6 +1,6 @@
 import { Link, HeadFC } from 'gatsby'
-import Footer from '../components/Footer/Footer'
-import Header from '../components/Header/Header'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 export const Head: HeadFC = () => <title>Tasty | Not found</title>
 

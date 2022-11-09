@@ -2,7 +2,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import './Header.css'
 import { IRecipe } from '../../types'
-import NavBar from '../../components/NavBar/NavBar'
+import NavBar from '../../components/NavBar'
 
 interface HeaderProps {
   isHomePage?: boolean
