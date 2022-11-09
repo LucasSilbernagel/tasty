@@ -75,7 +75,7 @@ const NavBar = (props: NavBarProps) => {
           }`}
         >
           <div className="flex justify-between border border-transparent border-b-gray-400 pb-4 mb-8 p-4">
-            <Link to="/search">
+            <Link className="w-full" to="/search">
               <div className="flex items-center">
                 <FaSearch className="text-xl" />{' '}
                 <span className="ml-4">Search</span>
