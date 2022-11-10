@@ -18,3 +18,11 @@
 .NavBar .Menu {
   @apply fixed top-0 left-0 w-[310px] h-full z-20 bg-teal-2 duration-500 px-2;
 }
+
+.NavBar .SearchContainer {
+  @apply flex justify-between border border-transparent border-b-gray-400 pb-4 mb-8 p-4;
+}
+
+.NavBar .MenuButton--container {
+  @apply hover:bg-teal-1 focus:bg-teal-1 p-4;
+}

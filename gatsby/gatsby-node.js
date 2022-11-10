@@ -13,8 +13,6 @@ exports.createPages = async function ({ actions, graphql }) {
       allStrapiRecipe {
         nodes {
           author {
-            bio
-            jobTitle
             name
             authorSlug
             photo {
@@ -59,7 +57,6 @@ exports.createPages = async function ({ actions, graphql }) {
               }
             }
           }
-          tagline
           totalTime
           yields
         }
@@ -78,6 +75,7 @@ exports.createPages = async function ({ actions, graphql }) {
             }
           }
           recipes {
+            name
             recipeSlug
             tagline
             id
@@ -88,7 +86,6 @@ exports.createPages = async function ({ actions, graphql }) {
                 }
               }
             }
-            name
           }
         }
       }

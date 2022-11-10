@@ -38,7 +38,7 @@ const MyRecipesPage = () => {
       <main>
         <h1 className="font-black text-4xl mb-12">My recipes</h1>
         {myRecipes.length > 0 ? (
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+          <ul className="RecipeGrid">
             {myRecipes.map((recipe: IRecipe) => {
               return (
                 <li
@@ -57,18 +57,18 @@ const MyRecipesPage = () => {
                   </div>
                   <ReactTooltip />
                   <Link to={`/recipes/${recipe.recipeSlug}`}>
-                    <div className="w-full h-[148px] sm:h-[309px] md:h-[250px]">
+                    <div className="RecipeGrid__Image">
                       <GatsbyImage
                         image={
                           recipe.smallPhoto.localFile.childImageSharp
                             .gatsbyImageData
                         }
                         alt={recipe.name}
-                        className="object-cover w-full h-[148px] sm:h-[309px] md:h-[250px]"
+                        className="object-cover RecipeGrid__Image"
                       />
                     </div>
                     <div className="w-full flex justify-center">
-                      <h4 className="font-bold text-lg text-left hover:text-orange-1 duration-500">
+                      <h4 className="RecipeGrid__Name">
                         {recipe.name}
                       </h4>
                     </div>

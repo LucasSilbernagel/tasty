@@ -15,6 +15,7 @@ const RecipeCards = (props: RecipeCardProps) => {
   const recipes = data.allStrapiRecipe.nodes
 
   let filteredRecipes = recipes
+  /** For "more recipes", don't display the recipes that's already being displayed as the main recipe */
   if (currentRecipeSlug) {
     filteredRecipes = recipes.filter(
       (selectedRecipe: IRecipe) =>
@@ -24,11 +25,9 @@ const RecipeCards = (props: RecipeCardProps) => {
 
   return (
     <>
-      <h2 className="font-bold text-4xl underline underline-offset-8 decoration-yellow-1 mb-4">
-        {title}
-      </h2>
+      <h2 className="SectionHeader mb-4">{title}</h2>
       <h3 className="text-lg mb-6">{subtitle}</h3>
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+      <ul className="RecipeGrid">
         {filteredRecipes.slice(0, numCards).map((recipe: IRecipe) => {
           return (
             <li
@@ -36,20 +35,18 @@ const RecipeCards = (props: RecipeCardProps) => {
               className="p-2 hover:shadow-xl focus:shadow-xl duration-300"
             >
               <Link to={`/recipes/${recipe.recipeSlug}`}>
-                <div className="w-full h-[148px] sm:h-[309px] md:h-[250px]">
+                <div className="RecipeGrid__Image">
                   <GatsbyImage
                     image={
                       recipe.smallPhoto.localFile.childImageSharp
                         .gatsbyImageData
                     }
                     alt={recipe.name}
-                    className="object-cover w-full h-[148px] sm:h-[309px] md:h-[250px]"
+                    className="object-cover RecipeGrid__Image"
                   />
                 </div>
                 <div className="w-full flex justify-center">
-                  <h4 className="font-bold text-lg text-left hover:text-orange-1 duration-500">
-                    {recipe.name}
-                  </h4>
+                  <h4 className="RecipeGrid__Name">{recipe.name}</h4>
                 </div>
               </Link>
             </li>

@@ -18,6 +18,7 @@ const NavBar = (props: NavBarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
+    /** Close menu when Escape key is pressed */
     if (isMenuOpen) {
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
@@ -51,7 +52,7 @@ const NavBar = (props: NavBarProps) => {
           </div>
           <div className="flex items-center ml-2 sm:ml-8">
             <Link
-              className="inline-block uppercase hover:underline focus:underline underline-offset-4"
+              className="inline-block uppercase Link--underline"
               to="/all-recipes"
             >
               Recipes
@@ -74,7 +75,7 @@ const NavBar = (props: NavBarProps) => {
               : 'invisible animate-slide-out'
           }`}
         >
-          <div className="flex justify-between border border-transparent border-b-gray-400 pb-4 mb-8 p-4">
+          <div className="SearchContainer">
             <Link
               className="w-full hover:contrast-50 focus:contrast-50"
               to="/search"
@@ -92,35 +93,29 @@ const NavBar = (props: NavBarProps) => {
               <FaTimes className="text-xl" />
             </button>
           </div>
-          <div className="hover:bg-teal-1 focus:bg-teal-1 p-4">
+          <div className="MenuButton--container">
             <button
-              className="hover:underline focus:underline underline-offset-4 w-full text-left"
+              className="Link--underline w-full text-left"
               onClick={() => toast('Subscribed!')}
             >
               Subscribe
             </button>
           </div>
-          <div className="p-4 hover:bg-teal-1 focus:bg-teal-1">
+          <div className="MenuButton--container">
             <Link
               to="/my-recipes"
-              className="flex items-center hover:underline focus:underline underline-offset-4"
+              className="flex items-center Link--underline"
             >
               <FaRegBookmark className="mr-2 " /> My Recipes
             </Link>
           </div>
-          <div className="p-4 hover:bg-teal-1 focus:bg-teal-1">
-            <Link
-              className="flex hover:underline focus:underline underline-offset-4"
-              to="/all-recipes"
-            >
+          <div className="MenuButton--container">
+            <Link className="flex Link--underline" to="/all-recipes">
               All Recipes
             </Link>
           </div>
-          <div className="p-4 hover:bg-teal-1 focus:bg-teal-1">
-            <Link
-              className="flex hover:underline focus:underline underline-offset-4"
-              to="/about-us"
-            >
+          <div className="MenuButton--container">
+            <Link className="flex Link--underline" to="/about-us">
               About Us
             </Link>
           </div>

@@ -18,3 +18,23 @@ html {
 main {
   @apply min-h-[72vh] py-6 px-2 mx-auto max-w-screen-lg text-center;
 }
+
+.Link--underline {
+  @apply hover:underline focus:underline underline-offset-4;
+}
+
+.SectionHeader {
+  @apply font-bold text-4xl underline underline-offset-8 decoration-yellow-1;
+}
+
+.RecipeGrid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4;
+}
+
+.RecipeGrid__Image {
+  @apply w-full h-[148px] sm:h-[309px] md:h-[250px];
+}
+
+.RecipeGrid__Name {
+  @apply font-bold text-lg text-left hover:text-orange-1 duration-500;
+}

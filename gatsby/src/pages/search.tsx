@@ -44,10 +44,8 @@ const SearchPage = () => {
               .includes(searchValue.toLowerCase())
           ).length > 0 ? (
             <>
-              <h2 className="font-bold text-4xl underline underline-offset-8 decoration-yellow-1 mb-8">
-                Recipe results
-              </h2>
-              <ul className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+              <h2 className="SectionHeader mb-8">Recipe results</h2>
+              <ul className="RecipeGrid">
                 {allRecipes
                   .filter((recipe: IRecipe) =>
                     JSON.stringify(recipe)
@@ -61,18 +59,18 @@ const SearchPage = () => {
                         className="p-2 duration-300 hover:shadow-xl focus:shadow-xl"
                       >
                         <Link to={`/recipes/${recipe.recipeSlug}`}>
-                          <div className="w-full h-[148px] sm:h-[309px] md:h-[250px]">
+                          <div className="RecipeGrid__Image">
                             <GatsbyImage
                               image={
                                 recipe.smallPhoto.localFile.childImageSharp
                                   .gatsbyImageData
                               }
                               alt={recipe.name}
-                              className="object-cover w-full h-[148px] sm:h-[309px] md:h-[250px]"
+                              className="object-cover RecipeGrid__Image"
                             />
                           </div>
                           <div className="w-full flex justify-center">
-                            <h4 className="font-bold text-lg text-left hover:text-orange-1 duration-500">
+                            <h4 className="RecipeGrid__Name">
                               {recipe.name}
                             </h4>
                           </div>

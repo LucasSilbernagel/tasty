@@ -8,6 +8,7 @@ import {
   FaPinterest,
 } from 'react-icons/fa'
 import { ToastContainer, toast } from 'react-toastify'
+import './Footer.css'
 
 const Footer = () => {
   const data = useStaticQuery(query)
@@ -15,8 +16,8 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-black text-white">
-        <div className="py-6 px-4 mx-auto max-w-screen-lg bg-black">
+      <footer className="Footer">
+        <div className="Footer__Inner">
           <div className="block sm:flex sm:justify-between max-w-lg">
             <div className="w-[120px]">
               <Link to="/">
@@ -28,55 +29,32 @@ const Footer = () => {
                 />
               </Link>
             </div>
-            <div className="flex justify-between w-56 mt-4">
-              <a
-                href="#"
-                className="hover:scale-125 focus:scale-125 duration-300"
-                aria-label="Twitter"
-              >
+            <div className="SocialContainer">
+              <a href="#" aria-label="Twitter">
                 <FaTwitter className="text-xl" />
               </a>
-              <a
-                href="#"
-                className="hover:scale-125 focus:scale-125 duration-300"
-                aria-label="YouTube"
-              >
+              <a href="#" aria-label="YouTube">
                 <FaYoutube className="text-xl" />
               </a>
-              <a
-                href="#"
-                className="hover:scale-125 focus:scale-125 duration-300"
-                aria-label="Facebook"
-              >
+              <a href="#" aria-label="Facebook">
                 <FaFacebook className="text-xl" />
               </a>
-              <a
-                href="#"
-                className="hover:scale-125 focus:scale-125 duration-300"
-                aria-label="Instagram"
-              >
+              <a href="#" aria-label="Instagram">
                 <FaInstagram className="text-xl" />
               </a>
-              <a
-                href="#"
-                className="hover:scale-125 focus:scale-125 duration-300"
-                aria-label="Pinterest"
-              >
+              <a href="#" aria-label="Pinterest">
                 <FaPinterest className="text-xl" />
               </a>
             </div>
           </div>
           <div className="mt-8 block sm:flex justify-between max-w-lg">
             <button
-              className="hover:underline focus:underline underline-offset-4"
+              className="Link--underline"
               onClick={() => toast('Subscribed!')}
             >
               Subscribe
             </button>
-            <Link
-              to="/about-us"
-              className="block mt-4 sm:mt-0 hover:underline focus:underline underline-offset-4"
-            >
+            <Link to="/about-us" className="block mt-4 sm:mt-0 Link--underline">
               About Us
             </Link>
           </div>
@@ -88,7 +66,7 @@ const Footer = () => {
                   href="https://www.delish.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:underline focus:underline underline-offset-4"
+                  className="Link--underline"
                 >
                   Delish.com
                 </a>
@@ -101,7 +79,7 @@ const Footer = () => {
                   href="https://lucassilbernagel.com/"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:underline focus:underline underline-offset-4"
+                  className="Link--underline"
                 >
                   Lucas Silbernagel
                 </a>

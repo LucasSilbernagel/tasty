@@ -30,7 +30,7 @@ const AboutUsPage = () => {
           </ReactMarkdown>
         </div>
         <div className="mt-4">
-          <h2 className="font-bold text-4xl underline underline-offset-8 decoration-yellow-1 mb-8">
+          <h2 className="SectionHeader mb-8">
             Contributors
           </h2>
           <ul className="flex gap-4 flex-wrap">
