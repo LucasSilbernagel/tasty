@@ -28,10 +28,13 @@ const RecipeCards = (props: RecipeCardProps) => {
         {title}
       </h2>
       <h3 className="text-lg mb-6">{subtitle}</h3>
-      <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+      <ul className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
         {filteredRecipes.slice(0, numCards).map((recipe: IRecipe) => {
           return (
-            <li key={recipe.id}>
+            <li
+              key={recipe.id}
+              className="p-2 hover:shadow-xl focus:shadow-xl duration-300"
+            >
               <Link to={`/recipes/${recipe.recipeSlug}`}>
                 <div className="w-full h-[148px] sm:h-[309px] md:h-[250px]">
                   <GatsbyImage

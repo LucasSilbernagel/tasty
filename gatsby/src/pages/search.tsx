@@ -47,7 +47,7 @@ const SearchPage = () => {
               <h2 className="font-bold text-4xl underline underline-offset-8 decoration-yellow-1 mb-8">
                 Recipe results
               </h2>
-              <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+              <ul className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
                 {allRecipes
                   .filter((recipe: IRecipe) =>
                     JSON.stringify(recipe)
@@ -56,7 +56,10 @@ const SearchPage = () => {
                   )
                   .map((recipe: IRecipe) => {
                     return (
-                      <li key={recipe.id}>
+                      <li
+                        key={recipe.id}
+                        className="p-2 duration-300 hover:shadow-xl focus:shadow-xl"
+                      >
                         <Link to={`/recipes/${recipe.recipeSlug}`}>
                           <div className="w-full h-[148px] sm:h-[309px] md:h-[250px]">
                             <GatsbyImage
@@ -98,6 +101,15 @@ const query = graphql`
   query {
     allStrapiRecipe {
       nodes {
+        author {
+          name
+        }
+        introText {
+          data {
+            introText
+          }
+        }
+        tagline
         id
         name
         recipeSlug

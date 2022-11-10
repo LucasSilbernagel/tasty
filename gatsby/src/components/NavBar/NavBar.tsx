@@ -75,7 +75,10 @@ const NavBar = (props: NavBarProps) => {
           }`}
         >
           <div className="flex justify-between border border-transparent border-b-gray-400 pb-4 mb-8 p-4">
-            <Link className="w-full" to="/search">
+            <Link
+              className="w-full hover:contrast-50 focus:contrast-50"
+              to="/search"
+            >
               <div className="flex items-center">
                 <FaSearch className="text-xl" />{' '}
                 <span className="ml-4">Search</span>
@@ -84,6 +87,7 @@ const NavBar = (props: NavBarProps) => {
             <button
               aria-label="close menu"
               onClick={() => setIsMenuOpen(false)}
+              className="hover:contrast-50 focus:contrast-50"
             >
               <FaTimes className="text-xl" />
             </button>

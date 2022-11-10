@@ -36,9 +36,12 @@ const AboutUsPage = () => {
           <ul className="flex gap-4 flex-wrap">
             {authorData.nodes.map((author: IAuthor) => {
               return (
-                <li key={author.id}>
+                <li
+                  key={author.id}
+                  className="p-2 duration-300 hover:shadow-xl focus:shadow-xl"
+                >
                   <Link to={`/authors/${author.authorSlug}`}>
-                    <div className="w-[240px]">
+                    <div className="w-[224px]">
                       <GatsbyImage
                         className="w-full h-full"
                         alt={author.name}

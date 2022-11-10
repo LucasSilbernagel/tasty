@@ -38,7 +38,7 @@ const AuthorPage = ({ pageContext }: any) => {
               return (
                 <li
                   key={recipe.id}
-                  className="flex justify-between mb-8 flex-col lg:flex-row"
+                  className="flex justify-between mb-8 flex-col lg:flex-row p-2 duration-300 hover:shadow-xl"
                 >
                   <Link
                     to={`/recipes/${recipe.recipeSlug}`}

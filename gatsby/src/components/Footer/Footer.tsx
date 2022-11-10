@@ -34,35 +34,35 @@ const Footer = () => {
                 className="hover:scale-125 focus:scale-125 duration-300"
                 aria-label="Twitter"
               >
-                <FaTwitter />
+                <FaTwitter className="text-xl" />
               </a>
               <a
                 href="#"
                 className="hover:scale-125 focus:scale-125 duration-300"
                 aria-label="YouTube"
               >
-                <FaYoutube />
+                <FaYoutube className="text-xl" />
               </a>
               <a
                 href="#"
                 className="hover:scale-125 focus:scale-125 duration-300"
                 aria-label="Facebook"
               >
-                <FaFacebook />
+                <FaFacebook className="text-xl" />
               </a>
               <a
                 href="#"
                 className="hover:scale-125 focus:scale-125 duration-300"
                 aria-label="Instagram"
               >
-                <FaInstagram />
+                <FaInstagram className="text-xl" />
               </a>
               <a
                 href="#"
                 className="hover:scale-125 focus:scale-125 duration-300"
                 aria-label="Pinterest"
               >
-                <FaPinterest />
+                <FaPinterest className="text-xl" />
               </a>
             </div>
           </div>

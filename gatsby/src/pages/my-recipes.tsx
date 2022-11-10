@@ -38,11 +38,14 @@ const MyRecipesPage = () => {
       <main>
         <h1 className="font-black text-4xl mb-12">My recipes</h1>
         {myRecipes.length > 0 ? (
-          <ul className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
             {myRecipes.map((recipe: IRecipe) => {
               return (
-                <li key={recipe.id} className="relative">
-                  <div className="absolute top-0 right-0 z-20 bg-blue-1 text-white">
+                <li
+                  key={recipe.id}
+                  className="relative p-2 duration-300 hover:shadow-xl focus:shadow-xl"
+                >
+                  <div className="absolute top-2 right-2 z-20 bg-red-700 text-white">
                     <button
                       onClick={() => removeSavedRecipe(recipe.id)}
                       className="w-full h-full hover:contrast-50 focus:contrast-50 p-2"
