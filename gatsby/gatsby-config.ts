@@ -51,6 +51,7 @@ const config: GatsbyConfig = {
           'tasty-logo-white',
           'about-page',
           'recipes-page',
+          'home-page',
         ],
       },
     },

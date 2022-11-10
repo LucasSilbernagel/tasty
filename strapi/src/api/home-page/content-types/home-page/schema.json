@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "featuredTitle": {
+      "type": "string",
+      "required": true
+    },
+    "featuredDescription": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

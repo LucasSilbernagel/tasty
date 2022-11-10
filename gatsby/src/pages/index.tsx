@@ -10,6 +10,7 @@ export const Head: HeadFC = () => <title>Tasty</title>
 const Home = () => {
   const data = useStaticQuery(query)
   const recipes = data.allStrapiRecipe.nodes
+  const homePageText = data.strapiHomePage
   const [randomRecipe, setRandomRecipe] = useState<IRecipe | null>(null)
 
   /** Select a random recipe to display in the hero on page load */
@@ -24,8 +25,8 @@ const Home = () => {
       <Header isHomePage={true} randomRecipe={randomRecipe} />
       <main>
         <RecipeCards
-          title="Editor's picks"
-          subtitle="Recipes we can't stop talking about."
+          title={homePageText.featuredTitle}
+          subtitle={homePageText.featuredDescription}
           numCards={4}
           currentRecipeSlug={randomRecipe?.recipeSlug}
         />
@@ -92,6 +93,10 @@ const query = graphql`
         totalTime
         yields
       }
+    }
+    strapiHomePage {
+      featuredTitle
+      featuredDescription
     }
   }
 `
