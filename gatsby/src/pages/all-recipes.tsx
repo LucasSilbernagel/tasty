@@ -1,7 +1,7 @@
 import { graphql, HeadFC, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 import RecipeCards from '../components/RecipeCards'
 
 export const Head: HeadFC = () => <title>Tasty | All Recipes</title>

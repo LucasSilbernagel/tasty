@@ -15,6 +15,8 @@ exports.createPages = async function ({ actions, graphql }) {
           author {
             name
             authorSlug
+            jobTitle
+            bio
             photo {
               localFile {
                 childImageSharp {

@@ -1,0 +1,3 @@
+.SeeAllRecipes {
+  @apply bg-teal-1 duration-300 p-4 rounded-sm text-xl font-black underline underline-offset-4 hover:bg-black hover:text-white focus:bg-black focus:text-white;
+}

@@ -1,6 +1,6 @@
 import { graphql, HeadFC, Link, useStaticQuery } from 'gatsby'
-import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import ReactMarkdown from 'react-markdown'
 import '../styles/about-us.css'
 import { IAuthor } from '../types'
@@ -30,9 +30,7 @@ const AboutUsPage = () => {
           </ReactMarkdown>
         </div>
         <div className="mt-4">
-          <h2 className="SectionHeader mb-8">
-            Contributors
-          </h2>
+          <h2 className="SectionHeader mb-8">Contributors</h2>
           <ul className="flex gap-4 flex-wrap">
             {authorData.nodes.map((author: IAuthor) => {
               return (

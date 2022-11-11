@@ -1,8 +1,8 @@
 import { graphql, HeadFC, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { ChangeEvent, useState } from 'react'
-import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { IRecipe } from '../types'
 
 export const Head: HeadFC = () => <title>Tasty | Search</title>
@@ -70,9 +70,7 @@ const SearchPage = () => {
                             />
                           </div>
                           <div className="w-full flex justify-center">
-                            <h4 className="RecipeGrid__Name">
-                              {recipe.name}
-                            </h4>
+                            <h4 className="RecipeGrid__Name">{recipe.name}</h4>
                           </div>
                         </Link>
                       </li>

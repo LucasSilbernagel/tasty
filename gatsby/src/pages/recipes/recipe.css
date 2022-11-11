@@ -31,3 +31,11 @@
 .Recipe .Instructions .Directions {
   @apply leading-relaxed text-lg;
 }
+
+.Recipe .Button {
+  @apply bg-blue-1 text-white uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black;
+}
+
+.Recipe .AuthorSection {
+  @apply my-8 max-w-xl mx-auto border border-y-gray-300 border-x-transparent py-8;
+}

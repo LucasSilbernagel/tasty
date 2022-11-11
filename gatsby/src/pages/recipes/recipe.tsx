@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeadFC, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import { DateTime } from 'luxon'
 import { FaBookmark } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
@@ -12,6 +12,7 @@ import RecipeCards from '../../components/RecipeCards'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { IRecipe } from '../../types'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
   const { name } = pageContext
@@ -43,7 +44,10 @@ const RecipePage = ({ pageContext }: any) => {
       smallPhoto: smallPhoto,
       recipeSlug: recipeSlug,
     }
-    if (savedRecipes !== null) {
+    if (
+      savedRecipes !== null &&
+      !JSON.parse(savedRecipes).find((recipe: IRecipe) => recipe.id === id)
+    ) {
       localStorage.setItem(
         'myRecipes',
         JSON.stringify([...JSON.parse(savedRecipes), newRecipe])
@@ -80,16 +84,10 @@ const RecipePage = ({ pageContext }: any) => {
           </p>
         </div>
         <div className="flex max-w-max mx-auto gap-4 mt-8 flex-col sm:flex-row">
-          <button
-            onClick={() => scrollTo('#recipe-top')}
-            className="bg-blue-1 text-white uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black"
-          >
+          <button onClick={() => scrollTo('#recipe-top')} className="Button">
             Jump to recipe
           </button>
-          <button
-            onClick={saveRecipe}
-            className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black"
-          >
+          <button onClick={saveRecipe} className="Button flex items-center">
             <FaBookmark className="mr-2 inline-block" /> Save to my recipes
           </button>
         </div>
@@ -128,10 +126,7 @@ const RecipePage = ({ pageContext }: any) => {
           <div className="max-w-[650px]">
             <div className="flex justify-between">
               <h2 className="font-black text-xl mb-8">Directions</h2>
-              <button
-                onClick={saveRecipe}
-                className="bg-blue-1 text-white flex items-center uppercase p-2 text-sm h-[36px] duration-300 hover:bg-black focus:bg-black"
-              >
+              <button onClick={saveRecipe} className="Button flex items-center">
                 <FaBookmark className="mr-2 inline-block" /> Save to my recipes
               </button>
             </div>
@@ -140,7 +135,7 @@ const RecipePage = ({ pageContext }: any) => {
             </ReactMarkdown>
           </div>
         </div>
-        <div className="my-8 max-w-xl mx-auto border border-y-gray-300 border-x-transparent py-8">
+        <div className="AuthorSection">
           <div className="text-sm uppercase flex gap-4">
             <div>
               <p>

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeadFC, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Footer from '../../components/Footer'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import { IRecipe } from '../../types'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
@@ -55,7 +55,7 @@ const AuthorPage = ({ pageContext }: any) => {
                   <Link
                     to={`/recipes/${recipe.recipeSlug}`}
                     aria-label={recipe.name}
-                    className="max-w-[548px] max-h-[275px] duration-300 hover:contrast-75"
+                    className="max-w-[548px] max-h-[275px]"
                   >
                     <GatsbyImage
                       className="w-full h-full max-h-[275px] object-contain"

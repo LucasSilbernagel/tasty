@@ -42,31 +42,6 @@ const query = graphql`
   query {
     allStrapiRecipe {
       nodes {
-        author {
-          bio
-          jobTitle
-          name
-          photo {
-            alternativeText
-            url
-          }
-        }
-        id
-        directions {
-          data {
-            directions
-          }
-        }
-        ingredients {
-          data {
-            ingredients
-          }
-        }
-        introText {
-          data {
-            introText
-          }
-        }
         largePhoto {
           alternativeText
           url
@@ -77,21 +52,8 @@ const query = graphql`
           }
         }
         name
-        prepTime
-        publishedAt
         recipeSlug
-        smallPhoto {
-          alternativeText
-          url
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
         tagline
-        totalTime
-        yields
       }
     }
     strapiHomePage {

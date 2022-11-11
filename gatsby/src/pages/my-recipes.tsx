@@ -1,11 +1,12 @@
 import { HeadFC, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useEffect, useState } from 'react'
-import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { IRecipe } from '../types'
 import { FaTrash } from 'react-icons/fa'
 import ReactTooltip from 'react-tooltip'
+import '../styles/my-recipes.css'
 
 export const Head: HeadFC = () => <title>Tasty | My Recipes</title>
 
@@ -68,9 +69,7 @@ const MyRecipesPage = () => {
                       />
                     </div>
                     <div className="w-full flex justify-center">
-                      <h4 className="RecipeGrid__Name">
-                        {recipe.name}
-                      </h4>
+                      <h4 className="RecipeGrid__Name">{recipe.name}</h4>
                     </div>
                   </Link>
                 </li>
@@ -82,10 +81,7 @@ const MyRecipesPage = () => {
             <h2 className="text-5xl mt-12 mb-24 text-blue-1">
               No recipes saved!
             </h2>
-            <Link
-              className="bg-teal-1 duration-300 p-4 rounded-sm text-xl font-black underline underline-offset-4 hover:bg-black hover:text-white focus:bg-black focus:text-white"
-              to="/all-recipes"
-            >
+            <Link className="SeeAllRecipes" to="/all-recipes">
               See all recipes
             </Link>
           </>
