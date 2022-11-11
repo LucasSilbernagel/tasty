@@ -4,4 +4,4 @@
 
 import { factories } from '@strapi/strapi'
 
-export default factories.createCoreController('api::tasty-logo.tasty-logo');
+export default factories.createCoreController('api::tasty-logo.tasty-logo')

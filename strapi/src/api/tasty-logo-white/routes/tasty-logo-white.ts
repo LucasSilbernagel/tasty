@@ -2,6 +2,8 @@
  * tasty-logo-white router
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from '@strapi/strapi'
 
-export default factories.createCoreRouter('api::tasty-logo-white.tasty-logo-white');
+export default factories.createCoreRouter(
+  'api::tasty-logo-white.tasty-logo-white'
+)
