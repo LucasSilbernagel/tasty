@@ -46,14 +46,14 @@ const MyRecipesPage = () => {
                   key={recipe.id}
                   className="relative p-2 duration-300 hover:shadow-xl focus:shadow-xl"
                 >
-                  <div className="absolute top-2 right-2 z-20 bg-red-700 text-white">
+                  <div className="absolute top-2 right-2 z-20 bg-red-700 text-white w-[50px] h-[50px]">
                     <button
                       onClick={() => removeSavedRecipe(recipe.id)}
-                      className="w-full h-full hover:contrast-50 focus:contrast-50 p-2"
+                      className="w-full h-full hover:contrast-50 focus:contrast-50 flex justify-center items-center"
                       aria-label={`remove ${recipe.name}`}
                       data-tip={`Remove ${recipe.name}`}
                     >
-                      <FaTrash />
+                      <FaTrash fontSize="1.5rem" />
                     </button>
                   </div>
                   <ReactTooltip />
@@ -69,7 +69,7 @@ const MyRecipesPage = () => {
                       />
                     </div>
                     <div className="w-full flex justify-center">
-                      <h4 className="RecipeGrid__Name">{recipe.name}</h4>
+                      <h2 className="RecipeGrid__Name">{recipe.name}</h2>
                     </div>
                   </Link>
                 </li>

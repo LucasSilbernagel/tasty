@@ -34,7 +34,7 @@ const SearchPage = () => {
             type="text"
             onChange={(e) => handleSearch(e)}
           />
-          <p className="text-left text-gray-400">Type keyword(s) to search</p>
+          <p className="text-left text-gray-600">Type keyword(s) to search</p>
         </div>
         <div className="mt-8">
           {searchValue &&

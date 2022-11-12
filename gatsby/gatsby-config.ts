@@ -7,7 +7,8 @@ dotenv.config({
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Tasty`,
-    siteUrl: `https://www.yourdomain.tld`,
+    description: `A collection of tasty recipes`,
+    siteUrl: `https://symphonious-croquembouche-c45916.netlify.app/`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

@@ -33,7 +33,7 @@
 }
 
 .Recipe .Button {
-  @apply bg-blue-1 text-white uppercase p-2 text-sm duration-300 hover:bg-black focus:bg-black;
+  @apply bg-blue-1 text-white uppercase p-2 h-10 text-sm duration-300 hover:bg-black focus:bg-black;
 }
 
 .Recipe .AuthorSection {
