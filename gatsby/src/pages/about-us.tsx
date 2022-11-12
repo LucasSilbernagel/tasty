@@ -19,9 +19,7 @@ const AboutUsPage = () => {
         <h1 className="font-black text-4xl mb-4">About Us</h1>
         <div className="Video-Container">
           <video autoPlay controls loop muted width="100%" height="100%">
-            <source
-              src={`${process.env.STRAPI_API_URL}${aboutPageData.VideoHero.url}`}
-            />
+            <source src={aboutPageData.VideoHero.localFile.url} />
           </video>
         </div>
         <div className="mt-8">
@@ -73,7 +71,9 @@ const query = graphql`
         }
       }
       VideoHero {
-        url
+        localFile {
+          url
+        }
       }
     }
     allStrapiAuthor {
