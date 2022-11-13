@@ -29,7 +29,7 @@ const AboutUsPage = () => {
         </div>
         <div className="mt-4">
           <h2 className="SectionHeader mb-8">Contributors</h2>
-          <ul className="flex gap-4 flex-wrap">
+          <ul className="flex flex-col sm:flex-row items-center gap-4 flex-wrap">
             {authorData.nodes.map((author: IAuthor) => {
               return (
                 <li

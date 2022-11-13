@@ -7,7 +7,7 @@
 }
 
 .Footer .SocialContainer {
-  @apply flex justify-between w-56 mt-4;
+  @apply flex justify-between w-full sm:max-w-xs mt-4;
 }
 
 .Footer .SocialContainer a {

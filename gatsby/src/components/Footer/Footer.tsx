@@ -31,36 +31,36 @@ const Footer = () => {
             </div>
             <div className="SocialContainer">
               <a href="#" aria-label="Twitter">
-                <FaTwitter className="text-xl" />
+                <FaTwitter className="text-3xl" />
               </a>
               <a href="#" aria-label="YouTube">
-                <FaYoutube className="text-xl" />
+                <FaYoutube className="text-3xl" />
               </a>
               <a href="#" aria-label="Facebook">
-                <FaFacebook className="text-xl" />
+                <FaFacebook className="text-3xl" />
               </a>
               <a href="#" aria-label="Instagram">
-                <FaInstagram className="text-xl" />
+                <FaInstagram className="text-3xl" />
               </a>
               <a href="#" aria-label="Pinterest">
-                <FaPinterest className="text-xl" />
+                <FaPinterest className="text-3xl" />
               </a>
             </div>
           </div>
-          <div className="mt-8 block sm:flex justify-between max-w-lg">
+          <div className="block mt-8 sm:flex justify-between max-w-lg">
             <button
-              className="Link--underline"
+              className="Link--underline mb-4"
               onClick={() => toast('Subscribed!')}
             >
               Subscribe
             </button>
-            <Link to="/about-us" className="block mt-4 sm:mt-0 Link--underline">
+            <Link to="/about-us" className="block Link--underline mb-4">
               About Us
             </Link>
           </div>
           <div className="block sm:flex justify-between max-w-lg">
-            <div className="mt-4 sm:mt-8">
-              <p>
+            <div>
+              <p className="mb-4">
                 Inspired by{' '}
                 <a
                   href="https://www.delish.com/"
@@ -72,7 +72,7 @@ const Footer = () => {
                 </a>
               </p>
             </div>
-            <div className="mt-4 sm:mt-8">
+            <div className="">
               <p>
                 Built by{' '}
                 <a
