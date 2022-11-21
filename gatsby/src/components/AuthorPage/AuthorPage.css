@@ -1,4 +1,13 @@
-.AuthorPhoto {
-  @apply rounded-full w-[120px] h-[120px];
+.AuthorPage .AuthorPhoto__container {
+  @apply rounded-full overflow-hidden w-[120px] h-[120px] min-w-[120px] min-h-[120px];
+  border-radius: 50%;
+}
+
+.AuthorPage .AuthorPhoto__container .gatsby-image-wrapper img {
+  border-radius: 50%;
+}
+
+.AuthorPage .AuthorPhoto {
+  @apply rounded-full w-[120px] h-[120px] min-w-[120px] min-h-[120px];
   border-radius: 50%;
 }

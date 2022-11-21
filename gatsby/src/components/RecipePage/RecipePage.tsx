@@ -64,11 +64,13 @@ const RecipePage = ({ pageContext }: any) => {
       <main className="Recipe">
         <h1 className="font-black text-4xl mb-4">{name}</h1>
         <div className="flex justify-center items-center">
-          <GatsbyImage
-            alt={author.name}
-            image={author.photo.localFile.childImageSharp.gatsbyImageData}
-            className="AuthorPhoto"
-          />
+          <div className="AuthorPhoto__container">
+            <GatsbyImage
+              alt={author.name}
+              image={author.photo.localFile.childImageSharp.gatsbyImageData}
+              className="AuthorPhoto"
+            />
+          </div>
           <p className="font-bold text-sm ml-2 mr-3">
             by{' '}
             <Link

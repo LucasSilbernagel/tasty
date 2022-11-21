@@ -1,3 +1,12 @@
+.Recipe .AuthorPhoto__container {
+  @apply rounded-full h-[40px] w-[40px];
+  border-radius: 50%;
+}
+
+.Recipe .AuthorPhoto__container .gatsby-image-wrapper img {
+  border-radius: 50%;
+}
+
 .Recipe .AuthorPhoto {
   @apply rounded-full h-[40px] w-[40px];
   border-radius: 50%;

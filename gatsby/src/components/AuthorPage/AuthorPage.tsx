@@ -4,6 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import Header from '../Header'
 import Footer from '../Footer'
 import { IRecipe } from '../../types'
+import './AuthorPage.css'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
   return <title>Tasty | {pageContext.name}</title>
@@ -15,7 +16,7 @@ const AuthorPage = ({ pageContext }: any) => {
       <Header />
       <main className="AuthorPage">
         <div className="flex text-left gap-6 flex-col sm:flex-row">
-          <div>
+          <div className="AuthorPhoto__container">
             <GatsbyImage
               className="AuthorPhoto"
               alt={pageContext.name}
