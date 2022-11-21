@@ -1,0 +1,4 @@
+.AuthorPhoto {
+  @apply rounded-full w-[120px] h-[120px];
+  border-radius: 50%;
+}

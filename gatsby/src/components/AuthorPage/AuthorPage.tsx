@@ -13,11 +13,11 @@ const AuthorPage = ({ pageContext }: any) => {
   return (
     <>
       <Header />
-      <main>
+      <main className="AuthorPage">
         <div className="flex text-left gap-6 flex-col sm:flex-row">
           <div>
             <GatsbyImage
-              className="rounded-full w-[120px] h-[120px]"
+              className="AuthorPhoto"
               alt={pageContext.name}
               image={
                 pageContext.photo.localFile.childImageSharp.gatsbyImageData

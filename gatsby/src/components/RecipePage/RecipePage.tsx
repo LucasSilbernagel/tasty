@@ -67,7 +67,7 @@ const RecipePage = ({ pageContext }: any) => {
           <GatsbyImage
             alt={author.name}
             image={author.photo.localFile.childImageSharp.gatsbyImageData}
-            className="rounded-full h-[40px] w-[40px]"
+            className="AuthorPhoto"
           />
           <p className="font-bold text-sm ml-2 mr-3">
             by{' '}
