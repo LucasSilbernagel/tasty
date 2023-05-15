@@ -98,7 +98,7 @@ exports.createPages = async function ({ actions, graphql }) {
     const slug = node.recipeSlug
     actions.createPage({
       path: `/recipes/${slug}`,
-      component: require.resolve(`./src/components/RecipePage/RecipePage.tsx`),
+      component: require.resolve(`./src/templates/RecipePage/RecipePage.tsx`),
       context: node,
     })
   })
@@ -106,7 +106,7 @@ exports.createPages = async function ({ actions, graphql }) {
     const slug = node.authorSlug
     actions.createPage({
       path: `/authors/${slug}`,
-      component: require.resolve(`./src/components/AuthorPage/AuthorPage.tsx`),
+      component: require.resolve(`./src/templates/AuthorPage/AuthorPage.tsx`),
       context: node,
     })
   })

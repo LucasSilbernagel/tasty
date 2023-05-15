@@ -1,5 +1,5 @@
 .AuthorPage .AuthorPhoto__container {
-  @apply rounded-full overflow-hidden w-[120px] h-[120px] min-w-[120px] min-h-[120px];
+  @apply rounded-full overflow-hidden w-[120px] h-[120px] min-w-[120px] min-h-[120px] mr-4;
   border-radius: 50%;
 }
 

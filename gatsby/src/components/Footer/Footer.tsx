@@ -16,11 +16,11 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="Footer">
+      <footer data-testid="footer" className="Footer">
         <div className="Footer__Inner">
           <div className="block sm:flex sm:justify-between max-w-lg">
             <div className="w-[120px]">
-              <Link to="/">
+              <Link to="/" data-testid="home-link">
                 <GatsbyImage
                   image={
                     tastyLogoWhite.localFile.childImageSharp.gatsbyImageData

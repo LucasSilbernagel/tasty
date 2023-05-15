@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeadFC, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Header from '../Header'
-import Footer from '../Footer'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import { IRecipe } from '../../types'
 import './AuthorPage.css'
 

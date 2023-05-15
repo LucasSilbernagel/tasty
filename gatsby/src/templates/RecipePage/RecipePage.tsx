@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeadFC, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Header from '../Header'
-import Footer from '../Footer'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import { DateTime } from 'luxon'
 import { FaBookmark } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 import './RecipePage.css'
 import rehypeRaw from 'rehype-raw'
-import RecipeCards from '../RecipeCards'
+import RecipeCards from '../../components/RecipeCards'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -85,7 +85,7 @@ const RecipePage = ({ pageContext }: any) => {
             {DateTime.fromISO(publishedAt).toLocaleString(DateTime.DATE_MED)}
           </p>
         </div>
-        <div className="flex max-w-max mx-auto gap-4 mt-8 flex-col sm:flex-row">
+        <div className="flex max-w-max mx-auto gap-4 mt-8 flex-col sm:flex-row justify-center">
           <button onClick={() => scrollTo('#recipe-top')} className="Button">
             Jump to recipe
           </button>
