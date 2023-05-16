@@ -63,7 +63,7 @@ const RecipePage = ({ pageContext }: any) => {
       <Header />
       <main className="Recipe">
         <h1 className="font-black text-4xl mb-4">{name}</h1>
-        <div className="flex justify-center items-center">
+        <div className="About">
           <div className="AuthorPhoto__container">
             <GatsbyImage
               alt={author.name}
@@ -71,7 +71,7 @@ const RecipePage = ({ pageContext }: any) => {
               className="AuthorPhoto"
             />
           </div>
-          <p className="font-bold text-sm ml-2 mr-3">
+          <p className="About__author">
             by{' '}
             <Link
               className="underline underline-offset-4 hover:text-blue-1 focus:text-blue-1 uppercase"
@@ -80,12 +80,12 @@ const RecipePage = ({ pageContext }: any) => {
               {author.name}
             </Link>
           </p>
-          <p className="uppercase text-gray-500 text-sm">
+          <p className="About__published">
             Published:{' '}
             {DateTime.fromISO(publishedAt).toLocaleString(DateTime.DATE_MED)}
           </p>
         </div>
-        <div className="flex max-w-max mx-auto gap-4 mt-8 flex-col sm:flex-row justify-center">
+        <div className="Buttons">
           <button onClick={() => scrollTo('#recipe-top')} className="Button">
             Jump to recipe
           </button>
@@ -102,8 +102,8 @@ const RecipePage = ({ pageContext }: any) => {
         <div className="IntroText">
           <ReactMarkdown>{introText.data.introText}</ReactMarkdown>
         </div>
-        <div className="uppercase bg-teal-3 font-bold" id="recipe-top">
-          <div className="flex justify-between py-4 mx-auto max-w-md">
+        <div className="Numbers" id="recipe-top">
+          <div className="Numbers__container">
             <div>
               <p>Yields:</p>
               <p className="text-blue-1">{yields}</p>
@@ -119,13 +119,13 @@ const RecipePage = ({ pageContext }: any) => {
           </div>
         </div>
         <div className="Instructions">
-          <div className="max-w-[300px]">
+          <div className="Ingredients">
             <h2 className="font-black text-xl mb-8">Ingredients</h2>
             <ReactMarkdown rehypePlugins={[rehypeRaw]}>
               {ingredients.data.ingredients}
             </ReactMarkdown>
           </div>
-          <div className="max-w-[650px]">
+          <div className="DirectionsContainer">
             <div className="flex justify-between">
               <h2 className="font-black text-xl mb-8">Directions</h2>
               <button onClick={saveRecipe} className="Button flex items-center">

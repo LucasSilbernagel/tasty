@@ -15,7 +15,7 @@ const AuthorPage = ({ pageContext }: any) => {
     <>
       <Header />
       <main className="AuthorPage">
-        <div className="flex text-left gap-6 flex-col sm:flex-row">
+        <div className="AuthorBio">
           <div className="AuthorPhoto__container">
             <GatsbyImage
               className="AuthorPhoto"
@@ -27,9 +27,7 @@ const AuthorPage = ({ pageContext }: any) => {
           </div>
           <div>
             <h1 className="font-black text-5xl">{pageContext.name}</h1>
-            <h2 className="text-teal-4 uppercase font-bold my-3">
-              {pageContext.jobTitle}
-            </h2>
+            <h2 className="AuthorBio__jobTitle">{pageContext.jobTitle}</h2>
             <p className="text-lg">{pageContext.bio}</p>
           </div>
         </div>
@@ -37,26 +35,21 @@ const AuthorPage = ({ pageContext }: any) => {
           <ul>
             {pageContext.recipes.map((recipe: IRecipe) => {
               return (
-                <li
-                  key={recipe.id}
-                  className="flex justify-between mb-8 flex-col lg:flex-row p-2 duration-300 hover:shadow-xl"
-                >
+                <li key={recipe.id} className="Recipe">
                   <Link
                     to={`/recipes/${recipe.recipeSlug}`}
-                    className="text-left pt-4"
+                    className="Recipe__textContainer"
                   >
-                    <h3 className="font-black text-3xl tracking-wide duration-300 hover:text-teal-4 focus:text-teal-1">
-                      {recipe.name}
-                    </h3>
-                    <p className="tracking-wide my-2">{recipe.tagline}</p>
-                    <p className="font-bold text-sm">
+                    <h3 className="Recipe__header">{recipe.name}</h3>
+                    <p className="Recipe__tagline">{recipe.tagline}</p>
+                    <p className="Recipe__authorName">
                       by <span className="uppercase">{pageContext.name}</span>
                     </p>
                   </Link>
                   <Link
                     to={`/recipes/${recipe.recipeSlug}`}
                     aria-label={recipe.name}
-                    className="max-w-[548px] max-h-[275px]"
+                    className="Recipe__imageContainer"
                   >
                     <GatsbyImage
                       className="w-full h-full max-h-[275px] object-contain"
