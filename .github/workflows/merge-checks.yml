@@ -12,8 +12,7 @@ jobs:
         with:
           node-version: 14
       run: |
-        cd gatsby
-        npm install
+        npm run gatsbyInstall
         npm run lint
   test:
     name: Test (jest)
@@ -25,6 +24,5 @@ jobs:
         with:
           node-version: 14
       run: |
-        cd gatsby
-        npm install
+        npm run gatsbyInstall
         npm test
