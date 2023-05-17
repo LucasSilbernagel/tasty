@@ -2,14 +2,14 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { IRecipe } from '../../types'
 
-interface RecipeCardProps {
+interface IRecipeCardProps {
   title: string
   subtitle?: string
   numCards?: number
   currentRecipeSlug?: string
 }
 
-const RecipeCards = (props: RecipeCardProps) => {
+const RecipeCards = (props: IRecipeCardProps) => {
   const { title, subtitle, numCards, currentRecipeSlug } = props
   const data = useStaticQuery(query)
   const recipes = data.allStrapiRecipe.nodes
@@ -26,15 +26,23 @@ const RecipeCards = (props: RecipeCardProps) => {
   return (
     <>
       <h2 className="SectionHeader mb-4">{title}</h2>
-      <h3 className="text-lg mb-6">{subtitle}</h3>
-      <ul className="RecipeGrid">
+      {subtitle && (
+        <h3 data-testid="subtitle" className="text-lg mb-6">
+          {subtitle}
+        </h3>
+      )}
+      <ul className="RecipeGrid" data-testid="recipe-grid">
         {filteredRecipes.slice(0, numCards).map((recipe: IRecipe) => {
           return (
             <li
               key={recipe.id}
               className="p-2 hover:shadow-xl focus:shadow-xl duration-300"
+              data-testid="recipe"
             >
-              <Link to={`/recipes/${recipe.recipeSlug}`}>
+              <Link
+                to={`/recipes/${recipe.recipeSlug}`}
+                data-testid={`recipe-link-${recipe.recipeSlug}`}
+              >
                 <div className="RecipeGrid__Image">
                   <GatsbyImage
                     image={

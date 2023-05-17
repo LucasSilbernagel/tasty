@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <>
-      <Header isHomePage={true} randomRecipe={randomRecipe} />
+      <Header randomRecipe={randomRecipe} />
       <main>
         <RecipeCards
           title={homePageText.featuredTitle}

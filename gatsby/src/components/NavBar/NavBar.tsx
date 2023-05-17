@@ -5,14 +5,14 @@ import { FaSearch, FaTimes, FaRegBookmark } from 'react-icons/fa'
 import { Link } from 'gatsby'
 import { ToastContainer, toast } from 'react-toastify'
 
-interface NavBarProps {
+interface INavBarProps {
   tastyLogo: {
     localFile: { childImageSharp: { gatsbyImageData: IGatsbyImageData } }
     alternativeText: string
   }
 }
 
-const NavBar = (props: NavBarProps) => {
+const NavBar = (props: INavBarProps) => {
   const { tastyLogo } = props
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,10 +31,11 @@ const NavBar = (props: NavBarProps) => {
 
   return (
     <>
-      <div className="NavBar">
+      <div className="NavBar" data-testid="navbar">
         <div className="flex">
           <button
             className="MenuButton"
+            data-testid="menu-button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? 'close menu' : 'open menu'}
           >
@@ -43,7 +44,7 @@ const NavBar = (props: NavBarProps) => {
             <div className="MenuButton-Line"></div>
           </button>
           <div className="w-[75px] flex items-center ml-2 mt-3">
-            <Link to="/">
+            <Link to="/" data-testid="home-link-nav-bar">
               <GatsbyImage
                 image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
                 alt={tastyLogo.alternativeText}
@@ -54,12 +55,17 @@ const NavBar = (props: NavBarProps) => {
             <Link
               className="inline-block uppercase Link--underline"
               to="/all-recipes"
+              data-testid="all-recipes-link"
             >
               Recipes
             </Link>
           </div>
         </div>
-        <button className="AccentButton" onClick={() => toast('Subscribed!')}>
+        <button
+          className="AccentButton"
+          onClick={() => toast('Subscribed!')}
+          data-testid="subscribe-button"
+        >
           Subscribe
         </button>
         {isMenuOpen && (
@@ -79,6 +85,7 @@ const NavBar = (props: NavBarProps) => {
             <Link
               className="w-full hover:contrast-50 focus:contrast-50"
               to="/search"
+              data-testid="search-link"
             >
               <div className="flex items-center">
                 <FaSearch className="text-xl" />{' '}
@@ -89,6 +96,7 @@ const NavBar = (props: NavBarProps) => {
               aria-label="close menu"
               onClick={() => setIsMenuOpen(false)}
               className="hover:contrast-50 focus:contrast-50"
+              data-testid="close-menu-button"
             >
               <FaTimes className="text-xl" />
             </button>
@@ -97,6 +105,7 @@ const NavBar = (props: NavBarProps) => {
             <button
               className="Link--underline w-full text-left"
               onClick={() => toast('Subscribed!')}
+              data-testid="subscribe-in-menu"
             >
               Subscribe
             </button>
@@ -105,17 +114,26 @@ const NavBar = (props: NavBarProps) => {
             <Link
               to="/my-recipes"
               className="flex items-center Link--underline"
+              data-testid="my-recipes-link"
             >
               <FaRegBookmark className="mr-2 " /> My Recipes
             </Link>
           </div>
           <div className="MenuButton--container">
-            <Link className="flex Link--underline" to="/all-recipes">
+            <Link
+              className="flex Link--underline"
+              to="/all-recipes"
+              data-testid="all-recipes-in-menu"
+            >
               All Recipes
             </Link>
           </div>
           <div className="MenuButton--container">
-            <Link className="flex Link--underline" to="/about-us">
+            <Link
+              className="flex Link--underline"
+              to="/about-us"
+              data-testid="about-us-link"
+            >
               About Us
             </Link>
           </div>

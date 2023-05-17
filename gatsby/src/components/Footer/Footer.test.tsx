@@ -45,10 +45,35 @@ describe('Footer', () => {
     render(<Footer />)
     expect(screen.getByTestId('footer')).toBeInTheDocument()
     expect(screen.getByTestId('home-link')).toBeInTheDocument()
-    // expect(screen.getByTestId('home-link')).toHaveAttribute('src', '/')
-    // expect(screen.getByText('Architecture')).toBeInTheDocument()
-    // expect(screen.getByText('Privacy Policy')).toBeInTheDocument()
-    // expect(screen.getByText('Terms of Service')).toBeInTheDocument()
-    console.log(screen.debug())
+    expect(screen.getByTestId('home-link')).toHaveAttribute('href', '/')
+    expect(screen.getByAltText('Test alternative text')).toBeInTheDocument()
+    expect(screen.getByTestId('twitter-link')).toBeInTheDocument()
+    expect(screen.getByTestId('twitter-link')).toHaveAttribute('href', '#')
+    expect(screen.getByTestId('youtube-link')).toBeInTheDocument()
+    expect(screen.getByTestId('youtube-link')).toHaveAttribute('href', '#')
+    expect(screen.getByTestId('facebook-link')).toBeInTheDocument()
+    expect(screen.getByTestId('facebook-link')).toHaveAttribute('href', '#')
+    expect(screen.getByTestId('instagram-link')).toBeInTheDocument()
+    expect(screen.getByTestId('instagram-link')).toHaveAttribute('href', '#')
+    expect(screen.getByTestId('pinterest-link')).toBeInTheDocument()
+    expect(screen.getByTestId('pinterest-link')).toHaveAttribute('href', '#')
+    expect(screen.getByTestId('subscribe-button')).toBeInTheDocument()
+    expect(screen.getByTestId('about-us-link')).toBeInTheDocument()
+    expect(screen.getByTestId('about-us-link')).toHaveAttribute(
+      'href',
+      '/about-us'
+    )
+    expect(screen.getByText('Inspired by')).toBeInTheDocument()
+    expect(screen.getByTestId('delish-link')).toBeInTheDocument()
+    expect(screen.getByTestId('delish-link')).toHaveAttribute(
+      'href',
+      'https://www.delish.com/'
+    )
+    expect(screen.getByText('Built by')).toBeInTheDocument()
+    expect(screen.getByTestId('portfolio-link')).toBeInTheDocument()
+    expect(screen.getByTestId('portfolio-link')).toHaveAttribute(
+      'href',
+      'https://lucassilbernagel.com/'
+    )
   })
 })
