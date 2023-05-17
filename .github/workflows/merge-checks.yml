@@ -1,0 +1,28 @@
+name: Merge Checks
+on: pull_request
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - run: cd gatsby
+      - run: npm install
+      - run: npm run lint
+  test:
+    name: Test (jest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - run: cd gatsby
+      - run: npm install
+      - run: npm test
