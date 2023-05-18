@@ -19,7 +19,7 @@ jobs:
           node-version: 14
 
       - name: Change directory to ./gatsby
-        run: cd ./gatsby
+        run: cd gatsby
 
       - name: Install dependencies
         run: npm install
