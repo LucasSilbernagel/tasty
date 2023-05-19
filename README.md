@@ -97,3 +97,13 @@ Replace *api key* with the API key created in the admin panel:
 ### Start up the Gatsby front end
 
 To start up the Gatsby front end, make sure you are in the `gatsby` folder and then run `npm start` in your terminal. Once the script finishes running, you should be able to view the app at [http://localhost:8000/](http://localhost:8000/). You will need to restart the Gatsby front end whenever you make content changes in the Strapi admin panel.
+
+## Testing
+
+### Unit Tests
+
+Unit tests are written with [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/).
+
+To run the front-end unit tests, `cd` into the `gatsby` folder.
+
+Use `npm test` to run all unit tests, or use `npm test SomeFileToRun` to run a specific test file.

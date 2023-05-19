@@ -1,0 +1,45 @@
+.AuthorPage .AuthorPhoto__container {
+  @apply rounded-full overflow-hidden w-[120px] h-[120px] min-w-[120px] min-h-[120px];
+  border-radius: 50%;
+}
+
+.AuthorPage .AuthorPhoto__container .gatsby-image-wrapper img {
+  border-radius: 50%;
+}
+
+.AuthorPage .AuthorPhoto {
+  @apply rounded-full w-[120px] h-[120px] min-w-[120px] min-h-[120px];
+  border-radius: 50%;
+}
+
+.AuthorPage .AuthorBio {
+  @apply flex text-left gap-6 flex-col sm:flex-row;
+}
+
+.AuthorPage .AuthorBio__jobTitle {
+  @apply text-teal-4 uppercase font-bold my-3;
+}
+
+.AuthorPage .Recipe {
+  @apply flex justify-between mb-8 flex-col lg:flex-row p-2 duration-300 hover:shadow-xl;
+}
+
+.AuthorPage .Recipe__textContainer {
+  @apply text-left pt-4;
+}
+
+.AuthorPage .Recipe__header {
+  @apply font-black text-3xl tracking-wide duration-300 hover:text-teal-4 focus:text-teal-1;
+}
+
+.AuthorPage .Recipe__tagline {
+  @apply tracking-wide my-2;
+}
+
+.AuthorPage .Recipe__authorName {
+  @apply font-bold text-sm;
+}
+
+.AuthorPage .Recipe__imageContainer {
+  @apply max-w-[548px] max-h-[275px];
+}

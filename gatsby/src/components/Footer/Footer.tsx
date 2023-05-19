@@ -16,11 +16,11 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="Footer">
+      <footer data-testid="footer" className="Footer">
         <div className="Footer__Inner">
           <div className="block sm:flex sm:justify-between max-w-lg">
             <div className="w-[120px]">
-              <Link to="/">
+              <Link to="/" data-testid="home-link">
                 <GatsbyImage
                   image={
                     tastyLogoWhite.localFile.childImageSharp.gatsbyImageData
@@ -30,31 +30,36 @@ const Footer = () => {
               </Link>
             </div>
             <div className="SocialContainer">
-              <a href="#" aria-label="Twitter">
+              <a href="#" aria-label="Twitter" data-testid="twitter-link">
                 <FaTwitter className="text-3xl" />
               </a>
-              <a href="#" aria-label="YouTube">
+              <a href="#" aria-label="YouTube" data-testid="youtube-link">
                 <FaYoutube className="text-3xl" />
               </a>
-              <a href="#" aria-label="Facebook">
+              <a href="#" aria-label="Facebook" data-testid="facebook-link">
                 <FaFacebook className="text-3xl" />
               </a>
-              <a href="#" aria-label="Instagram">
+              <a href="#" aria-label="Instagram" data-testid="instagram-link">
                 <FaInstagram className="text-3xl" />
               </a>
-              <a href="#" aria-label="Pinterest">
+              <a href="#" aria-label="Pinterest" data-testid="pinterest-link">
                 <FaPinterest className="text-3xl" />
               </a>
             </div>
           </div>
           <div className="block mt-8 sm:flex justify-between max-w-lg">
             <button
+              data-testid="subscribe-button"
               className="Link--underline mb-4"
               onClick={() => toast('Subscribed!')}
             >
               Subscribe
             </button>
-            <Link to="/about-us" className="block Link--underline mb-4">
+            <Link
+              to="/about-us"
+              className="block Link--underline mb-4"
+              data-testid="about-us-link"
+            >
               About Us
             </Link>
           </div>
@@ -67,6 +72,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="Link--underline"
+                  data-testid="delish-link"
                 >
                   Delish.com
                 </a>
@@ -80,6 +86,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="Link--underline"
+                  data-testid="portfolio-link"
                 >
                   Lucas Silbernagel
                 </a>

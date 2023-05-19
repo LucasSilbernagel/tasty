@@ -5,38 +5,34 @@ import { IRecipe } from '../../types'
 import NavBar from '../../components/NavBar'
 
 interface HeaderProps {
-  isHomePage?: boolean
   randomRecipe?: IRecipe | null
 }
 
 const Header = (props: HeaderProps) => {
-  const { isHomePage, randomRecipe } = props
+  const { randomRecipe } = props
   const data = useStaticQuery(query)
   const tastyLogo = data.strapiTastyLogo.tastyLogo
 
   return (
-    <header className="border border-b-gray-1 pb-2">
-      {isHomePage && (
+    <header data-testid="header" className="border border-b-gray-1 pb-2">
+      {randomRecipe && (
         <div className={`HomeHero`}>
-          {randomRecipe &&
-            randomRecipe.largePhoto.localFile.childImageSharp
-              .gatsbyImageData && (
-              <GatsbyImage
-                style={{
-                  gridArea: '1/1',
-                  aspectRatio: '3/1',
-                  width: '100%',
-                  height: '100%',
-                }}
-                alt=""
-                image={
-                  randomRecipe?.largePhoto.localFile.childImageSharp
-                    .gatsbyImageData
-                }
-              />
-            )}
+          <GatsbyImage
+            data-testid="random-recipe-image"
+            style={{
+              gridArea: '1/1',
+              aspectRatio: '3/1',
+              width: '100%',
+              height: '100%',
+            }}
+            alt=""
+            image={
+              randomRecipe?.largePhoto.localFile.childImageSharp.gatsbyImageData
+            }
+          />
+
           <div className="w-[95px] absolute top-4 left-4">
-            <Link to="/">
+            <Link to="/" data-testid="home-link">
               <GatsbyImage
                 image={tastyLogo.localFile.childImageSharp.gatsbyImageData}
                 alt={tastyLogo.alternativeText}
@@ -48,6 +44,7 @@ const Header = (props: HeaderProps) => {
             <Link
               to={`/recipes/${randomRecipe?.recipeSlug}`}
               className="hover:text-orange-1 focus:text-orange-1 duration-500"
+              data-testid="random-recipe-link"
             >
               <h1 className="text-4xl mt-5 font-black tracking-wide">
                 {randomRecipe?.name}

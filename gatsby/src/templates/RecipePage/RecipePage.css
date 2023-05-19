@@ -12,12 +12,36 @@
   border-radius: 50%;
 }
 
+.Recipe .About {
+  @apply flex justify-center items-center text-sm;
+}
+
+.Recipe .About__author {
+  @apply font-bold ml-2 mr-3;
+}
+
+.Recipe .About__published {
+  @apply uppercase text-gray-500;
+}
+
+.Recipe .Buttons {
+  @apply flex max-w-max mx-auto gap-4 mt-8 flex-col sm:flex-row justify-center;
+}
+
 .Recipe .IntroText {
   @apply my-4 text-left max-w-xl mx-auto leading-relaxed text-lg;
 }
 
 .Recipe .IntroText strong {
   @apply inline-block mt-4;
+}
+
+.Recipe .Numbers {
+  @apply uppercase bg-teal-3 font-bold;
+}
+
+.Recipe .Numbers__container {
+  @apply flex justify-between py-4 mx-auto max-w-md;
 }
 
 .Recipe .PrepTime {
@@ -40,6 +64,14 @@
 
 .Recipe .Instructions .InstructionHeader {
   @apply text-blue-1 font-black tracking-wider inline-block mb-4 text-lg;
+}
+
+.Recipe .Instructions .Ingredients {
+  @apply max-w-[300px];
+}
+
+.Recipe .Instructions .DirectionsContainer {
+  @apply max-w-[650px];
 }
 
 .Recipe .Instructions .Directions {
