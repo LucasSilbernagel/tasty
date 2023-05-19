@@ -12,12 +12,13 @@
     "lint:fix": "eslint --fix --ext \".js,.jsx,.ts,.tsx\" --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.4.5",
-    "@strapi/plugin-i18n": "4.4.5",
-    "@strapi/plugin-users-permissions": "4.4.5",
-    "@strapi/provider-upload-cloudinary": "^4.5.0",
-    "@strapi/strapi": "4.4.5",
-    "better-sqlite3": "7.4.6"
+    "@strapi/plugin-graphql": "^4.10.5",
+    "@strapi/plugin-i18n": "4.10.5",
+    "@strapi/plugin-users-permissions": "4.10.5",
+    "@strapi/provider-upload-cloudinary": "^4.10.5",
+    "@strapi/strapi": "4.10.5",
+    "better-sqlite3": "8.3.0",
+    "strapi-plugin-import-export-entries": "^1.19.1"
   },
   "author": {
     "name": "Lucas Silbernagel"
