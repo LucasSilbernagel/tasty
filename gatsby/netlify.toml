@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/admin"
+  to = "https://strapi-production-ff80.up.railway.app/admin"
+  status = 200
+  force = true
