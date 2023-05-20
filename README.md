@@ -11,6 +11,7 @@ A multi-page website of tasty recipes, inspired by [Delish.com](https://www.deli
 ### Content Management System
 
 - [Strapi](https://strapi.io/)
+- [Postgres](https://www.postgresql.org/)
 - [Cloudinary](https://cloudinary.com/)
 
 ### Front End
