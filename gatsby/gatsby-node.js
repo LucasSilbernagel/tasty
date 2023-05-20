@@ -7,6 +7,18 @@ exports.onCreateBabelConfig = ({ actions }) => {
   })
 }
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    devtool: 'eval-source-map',
+  })
+}
+
+exports.onCreateDevServer = ({ app }) => {
+  app.get('/admin', (_, res) => {
+    res.redirect('https://strapi-production-ff80.up.railway.app/admin')
+  })
+}
+
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
