@@ -14,7 +14,7 @@ const AuthorPage = ({ pageContext }: any) => {
   return (
     <>
       <Header />
-      <main className="AuthorPage">
+      <div className="AuthorPage">
         <div className="AuthorBio">
           <div className="AuthorPhoto__container">
             <GatsbyImage
@@ -65,7 +65,7 @@ const AuthorPage = ({ pageContext }: any) => {
             })}
           </ul>
         </div>
-      </main>
+      </div>
       <Footer />
     </>
   )

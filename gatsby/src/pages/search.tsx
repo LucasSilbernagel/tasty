@@ -24,7 +24,7 @@ const SearchPage = () => {
   return (
     <>
       <Header />
-      <main>
+      <>
         <h1 className="sr-only">Search recipes</h1>
         <div className="mt-12">
           <input
@@ -85,7 +85,7 @@ const SearchPage = () => {
           )}
         </div>
         <div className="mt-8"></div>
-      </main>
+      </>
       <Footer />
     </>
   )

@@ -33,14 +33,14 @@ const AllRecipesPage = () => {
           </div>
         </div>
       </header>
-      <main>
+      <>
         <div className="mb-8">
           <p className="text-lg tracking-wide text-left">
             {recipesPageData.description}
           </p>
         </div>
         <RecipeCards title="Most popular" subtitle="Must-try recipes." />
-      </main>
+      </>
       <Footer />
     </>
   )

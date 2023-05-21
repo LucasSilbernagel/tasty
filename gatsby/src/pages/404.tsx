@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   return (
     <>
       <Header />
-      <main>
+      <>
         <h1 className="font-black text-4xl mt-20 mb-8">
           Oops! We don&apos;t have the page you&apos;re looking for.
         </h1>
@@ -21,7 +21,7 @@ const NotFoundPage = () => {
           </Link>
           .
         </p>
-      </main>
+      </>
       <Footer />
     </>
   )

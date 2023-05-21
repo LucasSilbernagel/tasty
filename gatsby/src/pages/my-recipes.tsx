@@ -36,7 +36,7 @@ const MyRecipesPage = () => {
   return (
     <>
       <Header />
-      <main>
+      <>
         <h1 className="font-black text-4xl mb-12">My recipes</h1>
         {myRecipes.length > 0 ? (
           <ul className="RecipeGrid">
@@ -86,7 +86,7 @@ const MyRecipesPage = () => {
             </Link>
           </>
         )}
-      </main>
+      </>
       <Footer />
     </>
   )

@@ -15,7 +15,7 @@ const AboutUsPage = () => {
   return (
     <>
       <Header />
-      <main>
+      <>
         <h1 className="font-black text-4xl mb-4">About Us</h1>
         <div className="Video-Container">
           <video autoPlay controls loop muted width="100%" height="100%">
@@ -54,7 +54,7 @@ const AboutUsPage = () => {
             })}
           </ul>
         </div>
-      </main>
+      </>
       <Footer />
     </>
   )

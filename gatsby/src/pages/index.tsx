@@ -23,14 +23,14 @@ const Home = () => {
   return (
     <>
       <Header randomRecipe={randomRecipe} />
-      <main>
+      <>
         <RecipeCards
           title={homePageText.featuredTitle}
           subtitle={homePageText.featuredDescription}
           numCards={4}
           currentRecipeSlug={randomRecipe?.recipeSlug}
         />
-      </main>
+      </>
       <Footer />
     </>
   )

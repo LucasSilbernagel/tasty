@@ -61,7 +61,7 @@ const RecipePage = ({ pageContext }: any) => {
   return (
     <>
       <Header />
-      <main className="Recipe">
+      <div className="Recipe">
         <h1 className="font-black text-4xl mb-4">{name}</h1>
         <div className="About">
           <div className="AuthorPhoto__container">
@@ -164,7 +164,7 @@ const RecipePage = ({ pageContext }: any) => {
             numCards={4}
           />
         </div>
-      </main>
+      </div>
       <Footer />
       <ToastContainer
         position="top-center"
