@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_seo_seos",
+  "info": {
+    "displayName": "SEO",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "pageDescription": {
+      "type": "text",
+      "default": "For home cooks who are hungry for something good: Find thousands of tested recipes, menus, cooking shortcuts, dinner ideas, family meals, and more at Tasty.",
+      "required": true,
+      "maxLength": 170
+    },
+    "pageImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

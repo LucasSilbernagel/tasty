@@ -2,27 +2,36 @@ import { ReactNode } from 'react'
 import Seo from './Seo'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
+import { IRecipe } from '../types'
 
 interface ILayoutProps {
   pageTitle: string
-  pageDescription: string
-  pageImage: string
   pageRoute: string
   children: ReactNode
+  pageDescription?: string
+  pageImage?: string
+  randomRecipe?: IRecipe | null
 }
 
 const Layout = (props: ILayoutProps) => {
-  const { pageTitle, pageDescription, pageImage, pageRoute, children } = props
+  const {
+    pageTitle,
+    pageDescription,
+    pageImage,
+    pageRoute,
+    children,
+    randomRecipe,
+  } = props
 
   return (
     <>
-      <Header />
       <Seo
         pageTitle={pageTitle}
         pageDescription={pageDescription}
         pageImage={pageImage}
         pageRoute={pageRoute}
       />
+      <Header randomRecipe={randomRecipe} />
       <main>{children}</main>
       <Footer />
     </>

@@ -1,16 +1,16 @@
-import defaultSeoImage from '../images/defaultSeoImage.png'
+import { Helmet } from 'react-helmet'
 
 interface ISeoProps {
   pageTitle: string
-  pageDescription: string
-  pageImage: string
   pageRoute: string
+  pageDescription?: string
+  pageImage?: string
 }
 
 const Seo = ({
   pageTitle,
-  pageDescription,
-  pageImage = defaultSeoImage,
+  pageDescription = `For home cooks who are hungry for something good: Find thousands of tested recipes, menus, cooking shortcuts, dinner ideas, family meals, and more at Tasty.`,
+  pageImage = '/defaultSeoImage.png',
   pageRoute,
 }: ISeoProps) => {
   const getPageTitle = () => `Tasty | ${pageTitle}`
@@ -18,21 +18,28 @@ const Seo = ({
     `https://symphonious-croquembouche-c45916.netlify.app${pageRoute}`
 
   return (
-    <>
-      <title>{getPageTitle()}</title>
+    <Helmet>
+      <title key="title">{getPageTitle()}</title>
+      {/* Primary Meta Tags */}
+      <meta name="title" content={getPageTitle()} />
       <meta name="description" content={pageDescription} />
       <meta name="image" content={pageImage} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={getPageTitle()} />
-      <meta name="twitter:url" content={getPageRoute()} />
-      <meta name="twitter:description" content={pageDescription} />
-      <meta name="twitter:image" content={pageImage} />
-      <meta property="og:url" content={getPageRoute()} />
+      {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
+      <meta property="og:url" content={getPageRoute()} />
       <meta property="og:title" content={getPageTitle()} />
       <meta property="og:description" content={pageDescription} />
       <meta property="og:image" content={pageImage} />
-    </>
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Tasty" />
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={getPageRoute()} />
+      <meta property="twitter:title" content={getPageTitle()} />
+      <meta property="twitter:description" content={pageDescription} />
+      <meta property="twitter:image" content={pageImage} />
+    </Helmet>
   )
 }
 
