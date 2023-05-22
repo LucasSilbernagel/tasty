@@ -9,9 +9,9 @@ interface ISeoProps {
 
 const Seo = ({
   pageTitle,
+  pageRoute,
   pageDescription = `For home cooks who are hungry for something good: Find thousands of tested recipes, menus, cooking shortcuts, dinner ideas, family meals, and more at Tasty.`,
   pageImage = '/defaultSeoImage.png',
-  pageRoute,
 }: ISeoProps) => {
   const getPageTitle = () => `Tasty | ${pageTitle}`
   const getPageRoute = () =>

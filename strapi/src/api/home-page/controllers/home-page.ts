@@ -21,7 +21,6 @@ export default factories.createCoreController(
             featuredDescription: true,
             SEO: {
               populate: {
-                pageTitle: true,
                 pageDescription: true,
                 pageImage: {
                   populate: {

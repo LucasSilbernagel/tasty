@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <Layout
-      pageTitle={homePage.SEO.pageTitle}
+      pageTitle="Home"
       pageDescription={homePage.SEO.pageDescription}
       pageImage={homePage.SEO.pageImage.localFile.url}
       pageRoute="/"
@@ -61,7 +61,6 @@ const query = graphql`
       featuredTitle
       featuredDescription
       SEO {
-        pageTitle
         pageDescription
         pageImage {
           localFile {
