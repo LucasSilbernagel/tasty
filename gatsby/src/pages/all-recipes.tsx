@@ -3,6 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import RecipeCards from '../components/RecipeCards'
+import Seo from '../components/Seo'
 
 export const Head: HeadFC = () => <title>Tasty | All Recipes</title>
 
@@ -12,6 +13,12 @@ const AllRecipesPage = () => {
   const tastyLogo = data.strapiTastyLogo.tastyLogo
   return (
     <>
+      <Seo
+        pageTitle="All Recipes"
+        pageRoute="/all-recipes"
+        pageDescription={recipesPageData.description}
+        pageImage={recipesPageData.HeroImage.localFile.url}
+      />
       <header>
         <NavBar tastyLogo={tastyLogo} />
         <div className="mt-1 relative">
@@ -56,6 +63,7 @@ const query = graphql`
           childImageSharp {
             gatsbyImageData
           }
+          url
         }
       }
       description

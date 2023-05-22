@@ -55,6 +55,7 @@ exports.createPages = async function ({ actions, graphql }) {
           }
           largePhoto {
             localFile {
+              url
               childImageSharp {
                 gatsbyImageData
               }

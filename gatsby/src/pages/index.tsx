@@ -1,16 +1,15 @@
 import { graphql, HeadFC, useStaticQuery } from 'gatsby'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import RecipeCards from '../components/RecipeCards'
 import { useEffect, useState } from 'react'
 import { IRecipe } from '../types'
+import Layout from '../components/Layout'
 
 export const Head: HeadFC = () => <title>Tasty</title>
 
 const Home = () => {
   const data = useStaticQuery(query)
   const recipes = data.allStrapiRecipe.nodes
-  const homePageText = data.strapiHomePage
+  const homePage = data.strapiHomePage
   const [randomRecipe, setRandomRecipe] = useState<IRecipe | null>(null)
 
   /** Select a random recipe to display in the hero on page load */
@@ -21,18 +20,20 @@ const Home = () => {
   }, [recipes])
 
   return (
-    <>
-      <Header randomRecipe={randomRecipe} />
-      <main>
-        <RecipeCards
-          title={homePageText.featuredTitle}
-          subtitle={homePageText.featuredDescription}
-          numCards={4}
-          currentRecipeSlug={randomRecipe?.recipeSlug}
-        />
-      </main>
-      <Footer />
-    </>
+    <Layout
+      pageTitle="Home"
+      pageDescription={homePage.SEO.pageDescription}
+      pageImage={homePage.SEO.pageImage.localFile.url}
+      pageRoute="/"
+      randomRecipe={randomRecipe}
+    >
+      <RecipeCards
+        title={homePage.featuredTitle}
+        subtitle={homePage.featuredDescription}
+        numCards={4}
+        currentRecipeSlug={randomRecipe?.recipeSlug}
+      />
+    </Layout>
   )
 }
 
@@ -59,6 +60,14 @@ const query = graphql`
     strapiHomePage {
       featuredTitle
       featuredDescription
+      SEO {
+        pageDescription
+        pageImage {
+          localFile {
+            url
+          }
+        }
+      }
     }
   }
 `

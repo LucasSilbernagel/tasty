@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HeadFC, Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 import { IRecipe } from '../../types'
 import './AuthorPage.css'
+import Layout from '../../components/Layout'
 
 export const Head: HeadFC = ({ pageContext }: any) => {
   return <title>Tasty | {pageContext.name}</title>
@@ -12,9 +11,12 @@ export const Head: HeadFC = ({ pageContext }: any) => {
 
 const AuthorPage = ({ pageContext }: any) => {
   return (
-    <>
-      <Header />
-      <main className="AuthorPage">
+    <Layout
+      pageTitle={pageContext.name}
+      pageRoute={`/authors/${pageContext.name}`}
+      pageDescription={`${pageContext.bio.slice(0, 160)}...`}
+    >
+      <div className="AuthorPage">
         <div className="AuthorBio">
           <div className="AuthorPhoto__container">
             <GatsbyImage
@@ -65,9 +67,8 @@ const AuthorPage = ({ pageContext }: any) => {
             })}
           </ul>
         </div>
-      </main>
-      <Footer />
-    </>
+      </div>
+    </Layout>
   )
 }
 

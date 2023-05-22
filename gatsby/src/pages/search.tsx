@@ -1,9 +1,8 @@
 import { graphql, HeadFC, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { ChangeEvent, useState } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import { IRecipe } from '../types'
+import Layout from '../components/Layout'
 
 export const Head: HeadFC = () => <title>Tasty | Search</title>
 
@@ -22,72 +21,68 @@ const SearchPage = () => {
   }
 
   return (
-    <>
-      <Header />
-      <main>
-        <h1 className="sr-only">Search recipes</h1>
-        <div className="mt-12">
-          <input
-            className="mb-2 w-full text-4xl border border-b-gray-400 border-x-transparent border-t-transparent p-2"
-            placeholder="Search recipes"
-            id="search-form"
-            type="text"
-            onChange={(e) => handleSearch(e)}
-          />
-          <p className="text-left text-gray-600">Type keyword(s) to search</p>
-        </div>
-        <div className="mt-8">
-          {searchValue &&
-          allRecipes.filter((recipe: IRecipe) =>
-            JSON.stringify(recipe)
-              .toLowerCase()
-              .includes(searchValue.toLowerCase())
-          ).length > 0 ? (
-            <>
-              <h2 className="SectionHeader mb-8">Recipe results</h2>
-              <ul className="RecipeGrid">
-                {allRecipes
-                  .filter((recipe: IRecipe) =>
-                    JSON.stringify(recipe)
-                      .toLowerCase()
-                      .includes(searchValue.toLowerCase())
+    <Layout pageTitle="Search" pageRoute="/search">
+      <h1 className="sr-only">Search recipes</h1>
+      <div className="mt-12">
+        <input
+          className="mb-2 w-full text-4xl border border-b-gray-400 border-x-transparent border-t-transparent p-2"
+          placeholder="Search recipes"
+          id="search-form"
+          type="text"
+          onChange={(e) => handleSearch(e)}
+        />
+        <p className="text-left text-gray-600">Type keyword(s) to search</p>
+      </div>
+      <div className="mt-8">
+        {searchValue &&
+        allRecipes.filter((recipe: IRecipe) =>
+          JSON.stringify(recipe)
+            .toLowerCase()
+            .includes(searchValue.toLowerCase())
+        ).length > 0 ? (
+          <>
+            <h2 className="SectionHeader mb-8">Recipe results</h2>
+            <ul className="RecipeGrid">
+              {allRecipes
+                .filter((recipe: IRecipe) =>
+                  JSON.stringify(recipe)
+                    .toLowerCase()
+                    .includes(searchValue.toLowerCase())
+                )
+                .map((recipe: IRecipe) => {
+                  return (
+                    <li
+                      key={recipe.id}
+                      className="p-2 duration-300 hover:shadow-xl focus:shadow-xl"
+                    >
+                      <Link to={`/recipes/${recipe.recipeSlug}`}>
+                        <div className="RecipeGrid__Image">
+                          <GatsbyImage
+                            image={
+                              recipe.smallPhoto.localFile.childImageSharp
+                                .gatsbyImageData
+                            }
+                            alt={recipe.name}
+                            className="object-cover RecipeGrid__Image"
+                          />
+                        </div>
+                        <div className="w-full flex justify-center">
+                          <h4 className="RecipeGrid__Name">{recipe.name}</h4>
+                        </div>
+                      </Link>
+                    </li>
                   )
-                  .map((recipe: IRecipe) => {
-                    return (
-                      <li
-                        key={recipe.id}
-                        className="p-2 duration-300 hover:shadow-xl focus:shadow-xl"
-                      >
-                        <Link to={`/recipes/${recipe.recipeSlug}`}>
-                          <div className="RecipeGrid__Image">
-                            <GatsbyImage
-                              image={
-                                recipe.smallPhoto.localFile.childImageSharp
-                                  .gatsbyImageData
-                              }
-                              alt={recipe.name}
-                              className="object-cover RecipeGrid__Image"
-                            />
-                          </div>
-                          <div className="w-full flex justify-center">
-                            <h4 className="RecipeGrid__Name">{recipe.name}</h4>
-                          </div>
-                        </Link>
-                      </li>
-                    )
-                  })}
-              </ul>
-            </>
-          ) : (
-            <div className="bg-teal-2 p-2">
-              <h2 className="font-black text-4xl">No results</h2>
-            </div>
-          )}
-        </div>
-        <div className="mt-8"></div>
-      </main>
-      <Footer />
-    </>
+                })}
+            </ul>
+          </>
+        ) : (
+          <div className="bg-teal-2 p-2">
+            <h2 className="font-black text-4xl">No results</h2>
+          </div>
+        )}
+      </div>
+      <div className="mt-8"></div>
+    </Layout>
   )
 }
 
