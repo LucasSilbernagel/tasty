@@ -20,6 +20,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-postcss',
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
