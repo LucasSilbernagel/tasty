@@ -1,2 +1,2 @@
 # Redirects from what the browser requests to what we serve
-/admin              https://tasty-strapi-cms.onrender.com/admin
+/admin              https://tasty-strapi-cms.onrender.com/admin/
