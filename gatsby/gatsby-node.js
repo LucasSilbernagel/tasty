@@ -15,7 +15,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 exports.onCreateDevServer = ({ app }) => {
   app.get('/admin', (_, res) => {
-    res.redirect('https://strapi-production-ff80.up.railway.app/admin')
+    res.redirect('https://tasty-strapi-cms.onrender.com/admin')
   })
 }
 
